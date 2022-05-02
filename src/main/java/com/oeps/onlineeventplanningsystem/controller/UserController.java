@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import com.oeps.onlineeventplanningsystem.repositories.UserRepo;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.Optional;
 
@@ -28,18 +29,20 @@ public class UserController {
 
 
     //User Login function
-    @GetMapping("/loginUser")
-    public String loginUser(String userName, String password ) {
+    @PostMapping("/login")
+    public String loginUser(String userName, String password, HttpSession session) {
 
 
         //Check if user exists
         Optional<User> user= userRepo.findByUsernameAndPassword(userName , password);
 
+
         //If user exists, set session variables
         if(user.isPresent()) {
-
             session.setAttribute("userSession", user.get());
-            return "home";
+
+
+            return "index";
         }else {
             return "login";
         }
@@ -48,22 +51,24 @@ public class UserController {
 
     //User Logout function
     @GetMapping("/logout")
-    public String logoutUser() {
+    public String logoutUser(HttpSession session , HttpServletRequest request) {
 
         //Remove session variables
-        session.invalidate();
+//        session.invalidate();
+//        return "index";
+
+
+        session = request.getSession(false);
+        if (session != null) {
+            session.invalidate();
+        }
         return "index";
     }
 
 
-
-
-
-
-
     //Signup a user function
     @PostMapping("/signup")
-    public String registerUser(String userName, String password, String email, String name, String phoneNumber, String address) {
+    public String registerUser(String userName, String password, String email, String name, String phoneNumber, String address, HttpSession session) {
 
 
         //instantiate a new user
@@ -81,37 +86,27 @@ public class UserController {
         user.setRole(Role.USER);
 
         //save user to database
+
         userRepo.save(user);
 
+        //create a session
+        session.setAttribute("userSession", user);
 
         return "index";
     }
 
 
+    public String deleteUser(String userName , String password) {
+        Optional<User> user= userRepo.findByUsernameAndPassword(userName , password);
 
-//    public void updateUser(String userName, String password, String email, String firstName, String lastName, String phoneNumber, String address, String city, String state, String zipCode) {
-//
-//
-//
-//    }
-//
-//    public String deleteUser(String userName , String password) {
-//        Optional<User> user= userRepo.findByUsernameAndPassword(userName , password);
-//
-//
-//        if(user.isPresent()) {
-//            userRepo.delete(user.get());
-//        }
-//
-//        return "index";
-//    }
-//
-//    public void getUser(String userName) {
-//
-//
-//
-//
-//    }
+
+        if(user.isPresent()) {
+            userRepo.delete(user.get());
+        }
+
+        return "index";
+    }
+
 
 
 

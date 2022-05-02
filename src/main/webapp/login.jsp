@@ -112,7 +112,7 @@
             d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"
           ></path></svg
       ></a>
-      <form class="w-5/6 sm:w-1/2 mx-auto text-center" action="/loginUser" method="post">
+      <form class="w-5/6 sm:w-1/2 mx-auto text-center" action="/login" method="post">
         <img
           src="https://gustui.s3.amazonaws.com/gustlogo.png"
           class="h-8 block mx-auto"
@@ -128,10 +128,10 @@
             <div class="">
               <div class="">
                 <input
-                  type="email"
-                  name="email"
+                  type="text"
+                  name="userName"
                   class="w-full border border-gray-300 rounded-sm px-4 py-3 outline-none transition-colors duration-150 ease-in-out focus:border-blue-400"
-                  placeholder="Your email address"
+                  placeholder="Your userName"
                   value=""
                 />
               </div>

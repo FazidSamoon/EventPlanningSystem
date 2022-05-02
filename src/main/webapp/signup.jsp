@@ -258,7 +258,7 @@
 
 
     <div class="flex p-1 py-12  place-content-center">
-        <div class="max-w-lg overflow-hidden border border-gray-200 rounded-lg bg-blue-400">
+        <div class="max-w-lg overflow-hidden border border-gray-200 rounded-lg bg-black/50">
             <h1 class="text-4xl font-mono text-center text-white uppercase">SignUp</h1>
             <form class="w-full max-w-lg" action="signup" method="post">
                 <div class="p-10 pb-6">
@@ -278,7 +278,7 @@
                                 Name
                             </label>
                             <input
-                                class="block w-full px-4 py-3 leading-tight text-gray-700 bg-transparent border border-gray-200 rounded appearance-none focus:outline-none  focus:border-gray-500"
+                                class="block w-full px-4 py-3 leading-tight  text-white bg-transparent border border-gray-200 rounded appearance-none focus:outline-none  focus:border-gray-500"
                                 id="grid-last-name" name="name" type="text" placeholder="Doe">
                         </div>
                     </div>
@@ -289,7 +289,7 @@
                                 Email
                             </label>
                             <input
-                                class="block w-full px-4 py-3 mb-3 leading-tight text-gray-700 bg-transparent border border-gray-200 rounded appearance-none focus:outline-none  focus:border-gray-500"
+                                class="block w-full px-4 py-3 mb-3 leading-tight text-white bg-transparent border border-gray-200 rounded appearance-none focus:outline-none  focus:border-gray-500"
                                 id="grid-email" name="email" type="email" placeholder="janedoe@example.com">
                         </div>
                         <div class="w-full px-3 mb-6">
@@ -298,7 +298,7 @@
                                 Password
                             </label>
                             <input
-                                class="block w-full px-4 py-3 mb-3 leading-tight text-gray-700 bg-transparent border border-gray-200 rounded appearance-none focus:outline-none  focus:border-gray-500"
+                                class="block w-full px-4 py-3 mb-3 leading-tight text-white bg-transparent border border-gray-200 rounded appearance-none focus:outline-none  focus:border-gray-500"
                                 id="grid-password" name="password" type="password" placeholder="***********">
                         </div>
                         <div class="w-full px-3 mb-6">
@@ -307,7 +307,7 @@
                                 Phone number
                             </label>
                             <input
-                                class="block w-full px-4 py-3 mb-3 leading-tight text-gray-700 bg-transparent border border-gray-200 rounded appearance-none focus:outline-none  focus:border-gray-500"
+                                class="block w-full px-4 py-3 mb-3 leading-tight text-white bg-transparent border border-gray-200 rounded appearance-none focus:outline-none  focus:border-gray-500"
                                 id="grid-phoneNumber" name="phoneNumber" type="text" placeholder="+91 XXX XXX XXXX">
                         </div>
                     </div>
@@ -315,7 +315,7 @@
                     <label>
                         <span class="block mb-2 text-xs font-bold tracking-wide text-white uppercase">Address</span>
                         <textarea
-                            class="block w-full px-4 py-3 mt-1 mb-3 text-gray-700 bg-transparent border border-gray-200 rounded form-textarea focus:outline-none"
+                            class="block w-full px-4 py-3 mt-1 mb-3 text-white bg-transparent border border-gray-200 rounded form-textarea focus:outline-none"
                             rows="4" placeholder="" name="address"></textarea>
                     </label>
     
