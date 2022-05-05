@@ -16,47 +16,36 @@ import java.util.Optional;
 @Controller
 public class UserController {
 
-
-
     @Autowired
     UserRepo userRepo;
 
-    //Session object to manage all session states
+    // Session object to manage all session states
     HttpSession session;
 
-
-
-
-
-    //User Login function
+    // User Login function
     @PostMapping("/login")
     public String loginUser(String userName, String password, HttpSession session) {
 
+        // Check if user exists
+        Optional<User> user = userRepo.findByUsernameAndPassword(userName, password);
 
-        //Check if user exists
-        Optional<User> user= userRepo.findByUsernameAndPassword(userName , password);
-
-
-        //If user exists, set session variables
-        if(user.isPresent()) {
+        // If user exists, set session variables
+        if (user.isPresent()) {
             session.setAttribute("userSession", user.get());
 
-
             return "index";
-        }else {
+        } else {
             return "login";
         }
     }
 
-
-    //User Logout function
+    // User Logout function
     @GetMapping("/logout")
-    public String logoutUser(HttpSession session , HttpServletRequest request) {
+    public String logoutUser(HttpSession session, HttpServletRequest request) {
 
-        //Remove session variables
-//        session.invalidate();
-//        return "index";
-
+        // Remove session variables
+        // session.invalidate();
+        // return "index";
 
         session = request.getSession(false);
         if (session != null) {
@@ -65,16 +54,15 @@ public class UserController {
         return "index";
     }
 
-
-    //Signup a user function
+    // Signup a user function
     @PostMapping("/signup")
-    public String registerUser(String userName, String password, String email, String name, String phoneNumber, String address, HttpSession session) {
+    public String registerUser(String userName, String password, String email, String name, String phoneNumber,
+            String address, HttpSession session) {
 
-
-        //instantiate a new user
+        // instantiate a new user
         User user = new User();
 
-        //set values to user
+        // set values to user
 
         user.setUsername(userName);
         user.setPassword(password);
@@ -85,30 +73,24 @@ public class UserController {
         user.setAddress(address);
         user.setRole(Role.USER);
 
-        //save user to database
+        // save user to database
 
         userRepo.save(user);
 
-        //create a session
+        // create a session
         session.setAttribute("userSession", user);
 
         return "index";
     }
 
+    public String deleteUser(String userName, String password) {
+        Optional<User> user = userRepo.findByUsernameAndPassword(userName, password);
 
-    public String deleteUser(String userName , String password) {
-        Optional<User> user= userRepo.findByUsernameAndPassword(userName , password);
-
-
-        if(user.isPresent()) {
+        if (user.isPresent()) {
             userRepo.delete(user.get());
         }
 
         return "index";
     }
-
-
-
-
 
 }

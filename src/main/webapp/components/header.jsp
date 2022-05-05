@@ -62,7 +62,11 @@
               } else {
             %>
             <a class="block w-1/2 px-3 py-2 mx-1 rounded text-center text-sm bg-blue-500 font-medium text-white leading-5 hover:bg-blue-600 md:mx-0 md:w-auto" href="/logout">Logout</a>
+
             <img class=" px-5 py-5 z-50 " src="https://www.iconfinder.com/search?q=user&price=free" alt="">
+
+            <img class="h-[35px] w-[35px] bg-blue-200 ml-[10px]" src=".images/userP.png" alt="" href="/users">
+
             <%
               }
             %>

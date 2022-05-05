@@ -8,9 +8,9 @@ import javax.persistence.*;
 @Table(name = "user")
 public class User {
 
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int userID;
-
 
     private String username;
     private String password;
@@ -23,10 +23,11 @@ public class User {
     @Column(name = "role")
     private Role role;
 
-
     public User() {
     }
-    public User(int userID, String username, String password, String email, String name, String phone, String address, Role role) {
+
+    public User(int userID, String username, String password, String email, String name, String phone, String address,
+            Role role) {
         this.userID = userID;
         this.username = username;
         this.password = password;
@@ -58,8 +59,6 @@ public class User {
         this.name = name;
     }
 
-
-
     public void setPhone(String phone) {
         this.phone = phone;
     }
@@ -76,7 +75,7 @@ public class User {
         return userID;
     }
 
-    public  String getUsername() {
+    public String getUsername() {
         return username;
     }
 
@@ -87,8 +86,6 @@ public class User {
     public String getEmail() {
         return email;
     }
-
-
 
     public String getName() {
         return name;
