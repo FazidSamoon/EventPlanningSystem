@@ -6,7 +6,6 @@
 </head>
 
 <body>
-
     <!-- component -->
 <!-- <link rel="stylesheet" href="https://kit-pro.fontawesome.com/releases/v5.15.1/css/pro.min.css" />
 
@@ -81,8 +80,6 @@
     </div>
   </div>
 </div> -->
-
-
 
 
 

@@ -10,29 +10,42 @@ public class HomeController {
     @GetMapping("/")
     String getHomepage() {
 
-        return"index";
+        return "index";
     }
 
     @GetMapping("/signup")
-    public String getSignup(){
+    public String getSignup() {
         return "signup";
     }
 
 
-
     @GetMapping("/login")
-    public String getLogin(){
+    public String getLogin() {
         return "login";
+    }
+
+    @GetMapping("/users")
+    public String getUsers() {
+        return "./account/users";
+    }
+
+    @GetMapping("/events")
+    public String getEvents() {
+        return "events";
+    }
+
+    @GetMapping("/event")
+    public String getEvent() {
+        return "event";
+    }
+
+    @GetMapping("/dashboard")
+    public String getDashboard() {
+        return "./account/admin";
     }
 
     @GetMapping("/services")
     public String getServices(){
          return "services";
     }
-
-    @GetMapping("/blogs")
-    public String getBlogs(){
-         return "blogs";
-    }
-
 }

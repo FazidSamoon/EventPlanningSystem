@@ -1,3 +1,4 @@
+<%@ page import="sun.net.ftp.FtpClient" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -60,9 +61,19 @@
 
     </div>
 <div>
+        <%
+              if (session.getAttribute("userSession") != null) {
+        %>
 
-    <h1>hello ${userSession}</h1>
+    <h1>hello ${userSession.getUsername()}</h1>
+    <h1>hello ${userSession.getEmail()}</h1>
+    <h1>hello ${userSession.getPhone()}</h1>
+    <h1>hello ${userSession.getAddress()}</h1>
+    <h1>hello ${userSession.getRole()}</h1>
 
+        <%
+              }
+        %>
 
 
 
