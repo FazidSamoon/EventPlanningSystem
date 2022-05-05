@@ -23,11 +23,15 @@ public class HomeController {
 
 
 
-
-
-
     @GetMapping("/login")
     public String getLogin(){
         return "login";
     }
+
+    @GetMapping("/services")
+    public String getServices(){
+         return "services";
+    }
+
+
 }
