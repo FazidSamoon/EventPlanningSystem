@@ -27,7 +27,7 @@ public class HomeController {
 
     @GetMapping("/users")
     public String getUsers() {
-        return "users";
+        return "./account/users";
     }
 
     @GetMapping("/events")
@@ -42,7 +42,7 @@ public class HomeController {
 
     @GetMapping("/dashboard")
     public String getDashboard() {
-        return "admin";
+        return "./account/admin";
     }
 
 }
