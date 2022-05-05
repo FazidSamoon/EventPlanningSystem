@@ -51,13 +51,8 @@ public class HomeController {
 
     @GetMapping("/blogs")
     public String getBlogs(){
-        return "blogs";
+         return "blogs";
     }
 
-    @GetMapping("/addBlog")
-    public String getAddBlogs(){
-        return "addBlog";
-    }
 
-    
 }
