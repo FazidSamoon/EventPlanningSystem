@@ -48,4 +48,16 @@ public class HomeController {
     public String getServices(){
          return "services";
     }
+
+    @GetMapping("/blogs")
+    public String getBlogs(){
+        return "blogs";
+    }
+
+    @GetMapping("/addBlog")
+    public String getAddBlogs(){
+        return "addBlog";
+    }
+
+    
 }
