@@ -3,8 +3,10 @@ package com.oeps.onlineeventplanningsystem.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+
 
 @Controller
 public class HomeController {
@@ -19,6 +21,7 @@ public class HomeController {
     public String getSignup() {
         return "signup";
     }
+
 
     @GetMapping("/login")
     public String getLogin() {
@@ -44,5 +47,12 @@ public class HomeController {
     public String getDashboard() {
         return "./account/admin";
     }
+
+    @GetMapping("/services")
+    public String getServices(){
+         return "services";
+    }
+
+
 
 }
