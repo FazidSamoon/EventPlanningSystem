@@ -33,5 +33,9 @@ public class HomeController {
          return "services";
     }
 
+    @GetMapping("/blogs")
+    public String getBlogs(){
+         return "blogs";
+    }
 
 }
