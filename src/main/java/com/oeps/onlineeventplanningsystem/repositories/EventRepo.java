@@ -9,9 +9,10 @@ import java.util.Optional;
 
 @Repository
 public interface EventRepo extends JpaRepository<Event, Integer> {
-    Optional<Event> findbyUsername(String username);
-    Optional<Event> findById(int id);
-    Optional<Event> findByEventname(String eventName);
-    Optional<Event> findByEventnameAndUsername(String eventName, String username);
+    Optional<Event> findByEventId(Integer eventId);
+    Optional<Event> findByusername(String username);
+    //  Optional<Event> findById(int id);
+   // Optional<Event> findByEventName(String eventName);
+   // Optional<Event> findByEventNameAndusername(String eventName, String username);
 }
 

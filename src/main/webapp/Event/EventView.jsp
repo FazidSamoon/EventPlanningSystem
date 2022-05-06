@@ -11,6 +11,17 @@
 </head>
 <body>
 <%@ include file="../components/header.jsp" %>
+
+    <% for(int i =0; i>6; i++){
+        %>
+
+
+
+         <%  } %>
+
+<br>
+<br>
+<br>
 <!-- component -->
 <table class="min-w-full border-collapse block md:table">
     <thead class="block md:table-header-group">

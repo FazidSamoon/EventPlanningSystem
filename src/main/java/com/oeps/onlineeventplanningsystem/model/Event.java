@@ -18,13 +18,16 @@ public class Event {
     private String eventLocation;
     private String username;
 
-    public Event(String eventName, String eventDescription, String eventDate, String eventLocation , HttpSession session) {
+    public String getUsername() {
+        return username;
+    }
+
+    public Event(String eventName, String eventDescription, String eventDate, String eventLocation , String username) {
         this.eventName = eventName;
         this.eventDescription = eventDescription;
         this.eventDate = eventDate;
         this.eventLocation = eventLocation;
-
-        this.username = (String) session.getAttribute("username");
+        this.username = username;
 
 
     }

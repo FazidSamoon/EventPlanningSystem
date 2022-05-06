@@ -21,8 +21,8 @@
     <!-- component -->
 <!-- Code block starts -->
 <dh-component>
-    
-                <form id="EvtntDetails">
+    <div class="container mx-auto p-4 rounded-xl width-80" >
+                <form id="EventDetails">
                     <div class="bg-white dark:bg-gray-800">
                         <div class="container mx-auto bg-white dark:bg-gray-800 rounded">
                             <div class="xl:w-full border-b border-gray-300 dark:border-gray-600 py-5 bg-white dark:bg-gray-800">
@@ -52,7 +52,7 @@
                                     <form class="my-6 w-11/12 mx-auto xl:w-full xl:mx-0">
                                         <div class="xl:w-1/4 lg:w-1/2 md:w-1/2 flex flex-col mb-6">
                                                 <!-- date picker -->
-                                                <label for="date" class="pb-2 text-sm font-bold text-gray-800 dark:text-gray-100">Select Date</label>
+                                                <label for="eventDate" class="pb-2 text-sm font-bold text-gray-800 dark:text-gray-100">Select Date</label>
                                             <div class="relative">
                                                 <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
                                                 <svg class="w-5 h-5 text-gray-500 dark:text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"></path></svg>
@@ -91,9 +91,6 @@
                                                 </select>
                                               </div>
                                         </div>
-                                         
-                                       
-                                        
                                     </form>
                                 </div>
                             </div>
@@ -148,6 +145,7 @@
                 </script>
                 
             </dh-component>
+        </div>
             <!-- Code block ends -->
     <%@ include file="../components/footer.jsp" %>
 </body>
