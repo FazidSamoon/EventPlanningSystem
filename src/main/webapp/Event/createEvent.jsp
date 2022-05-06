@@ -8,12 +8,18 @@
     <script src="https://cdn.tailwindcss.com"></script>
 <%--    <script src="https://unpkg.com/flowbite@1.4.5/dist/datepicker.js"></script>--%>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+
+
 </head>
 <body>
     <div class="bg-red">
         <%--    header--%>
         <%@ include file="../components/header.jsp" %>
     </div>
+    <br>
+    <br>
+    <br>
     <br>
     <br>
     <br>
@@ -147,13 +153,18 @@
 <%--            </dh-component>--%>
 <%--        </div>--%>
 
-<div>
+<div class="container" >
 <form action="saveEvent">
 
     <div class="form-group">
-        <label for="exampleFormControlInput1">Email address</label>
-        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+        <label for="eventName">Event name</label>
+        <input type="Text" class="form-control" id="eventName" placeholder="Enter your Event name">
     </div>
+    <div class="form-group">
+        <label for="eventDescription">Event Description</label>
+        <textarea class="form-control" id="eventDescription" rows="3"></textarea>
+    </div>
+
 
 
 </form>
