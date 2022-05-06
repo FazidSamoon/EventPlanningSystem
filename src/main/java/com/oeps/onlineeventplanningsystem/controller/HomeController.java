@@ -13,7 +13,7 @@ public class HomeController {
     @GetMapping("/")
     String getHomepage() {
 
-        return"index";
+        return "index";
     }
 
     @GetMapping("/signup")
