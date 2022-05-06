@@ -70,6 +70,7 @@
     <h1>hello ${userSession.getPhone()}</h1>
     <h1>hello ${userSession.getAddress()}</h1>
     <h1>hello ${userSession.getRole()}</h1>
+    <h1>hello ${userSession.getUserID()}</h1>
 
         <%
               }

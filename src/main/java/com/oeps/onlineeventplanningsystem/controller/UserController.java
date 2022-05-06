@@ -1,16 +1,15 @@
 package com.oeps.onlineeventplanningsystem.controller;
-
+import com.oeps.onlineeventplanningsystem.error.UserNotFoundException;
 import com.oeps.onlineeventplanningsystem.model.Role;
 import com.oeps.onlineeventplanningsystem.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
 import com.oeps.onlineeventplanningsystem.repositories.UserRepo;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.util.Objects;
 import java.util.Optional;
 
 @Controller
@@ -24,7 +23,7 @@ public class UserController {
 
     // User Login function
     @PostMapping("/login")
-    public String loginUser(String userName, String password, HttpSession session) {
+    public String loginUser(String userName, String password, HttpSession session) throws UserNotFoundException {
 
         // Check if user exists
         Optional<User> user = userRepo.findByUsernameAndPassword(userName, password);
@@ -32,20 +31,15 @@ public class UserController {
         // If user exists, set session variables
         if (user.isPresent()) {
             session.setAttribute("userSession", user.get());
-
             return "index";
         } else {
-            return "login";
+            throw new UserNotFoundException("Invalid User Details");
         }
     }
 
     // User Logout function
     @GetMapping("/logout")
     public String logoutUser(HttpSession session, HttpServletRequest request) {
-
-        // Remove session variables
-        // session.invalidate();
-        // return "index";
 
         session = request.getSession(false);
         if (session != null) {
@@ -83,14 +77,52 @@ public class UserController {
         return "index";
     }
 
-    public String deleteUser(String userName, String password) {
+    public String deleteUser(String userName, String password) throws UserNotFoundException {
         Optional<User> user = userRepo.findByUsernameAndPassword(userName, password);
 
         if (user.isPresent()) {
             userRepo.delete(user.get());
+        }else {
+            throw new UserNotFoundException("User not found");
         }
 
         return "index";
     }
+
+
+    @PostMapping("/editUserInfo/{id}")
+    public String editUser(@PathVariable("id") int id , String username, String eMail , String phone ,String name,String address ,  Model model){
+
+        User user1 = userRepo.findById(id).get();
+
+        if(Objects.nonNull(username) &&
+                !"".equalsIgnoreCase(username)) {
+            user1.setUsername(username);
+        }
+
+        if(Objects.nonNull(name) &&
+                !"".equalsIgnoreCase(name)) {
+            user1.setName(name);
+        }
+
+        if(Objects.nonNull(eMail)) {
+            user1.setEmail(eMail);
+        }
+
+        if(Objects.nonNull(phone)) {
+            user1.setPhone(phone);
+        }
+
+        if(Objects.nonNull(address) &&
+                !"".equalsIgnoreCase(address)) {
+            user1.setAddress(address);
+        }
+
+        userRepo.save(user1);
+
+    	return "/index";
+
+    }
+
 
 }
