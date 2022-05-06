@@ -34,8 +34,8 @@
                                 <div class="xl:w-9/12 w-11/12 mx-auto xl:mx-0">
                                     
                                     <div class="mt-16 flex flex-col xl:w-2/6 lg:w-1/2 md:w-1/2 w-full">
-                                        <label for="EventName" class="pb-2 text-sm font-bold text-gray-800 dark:text-gray-100">Event name</label>
-                                        <input tabindex="0" type="text" id="EventName" name="EventName" required class="border border-gray-300 dark:border-gray-700 pl-3 py-3 shadow-sm rounded text-sm focus:outline-none focus:border-indigo-700 bg-transparent placeholder-gray-500 text-gray-600 dark:text-gray-400" placeholder="Enter your event name" />
+                                        <label for="eventName" class="pb-2 text-sm font-bold text-gray-800 dark:text-gray-100">Event name</label>
+                                        <input tabindex="0" type="text" id="eventName" name="eventName" required class="border border-gray-300 dark:border-gray-700 pl-3 py-3 shadow-sm rounded text-sm focus:outline-none focus:border-indigo-700 bg-transparent placeholder-gray-500 text-gray-600 dark:text-gray-400" placeholder="Enter your event name" />
                                     </div>
                                     <div class="mt-8 flex flex-col xl:w-3/5 lg:w-1/2 md:w-1/2 w-full">
                                         <label for="Description" class="pb-2 text-sm font-bold text-gray-800 dark:text-gray-100">Description</label>

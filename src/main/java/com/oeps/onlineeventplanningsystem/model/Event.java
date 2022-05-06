@@ -1,6 +1,7 @@
 package com.oeps.onlineeventplanningsystem.model;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
-import net.bytebuddy.dynamic.loading.InjectionClassLoader;
 
 import javax.persistence.*;
 
@@ -15,12 +16,17 @@ public class Event {
     private String eventDescription;
     private String eventDate;
     private String eventLocation;
+    private String username;
 
-    public Event(String eventName, String eventDescription, String eventDate, String eventLocation) {
+    public Event(String eventName, String eventDescription, String eventDate, String eventLocation , HttpSession session) {
         this.eventName = eventName;
         this.eventDescription = eventDescription;
         this.eventDate = eventDate;
         this.eventLocation = eventLocation;
+
+        this.username = (String) session.getAttribute("username");
+
+
     }
     public Event(){}
 
