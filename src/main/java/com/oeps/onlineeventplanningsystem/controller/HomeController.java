@@ -26,7 +26,7 @@ public class HomeController {
 
     @GetMapping("/users")
     public String getUsers() {
-        return "./account/users";
+        return "userProfile";
     }
 
     @GetMapping("/events")
@@ -52,6 +52,11 @@ public class HomeController {
     @GetMapping("/blogs")
     public String getBlogs(){
          return "blogs";
+    }
+
+    @GetMapping("/editUserInfo")
+    public String getEditUserInfo(){
+         return "editUserInfo";
     }
 
 
