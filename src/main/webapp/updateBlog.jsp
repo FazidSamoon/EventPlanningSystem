@@ -39,7 +39,7 @@
                     Blog blog= (Blog) request.getAttribute("blogC");
                 %>
 
-                <form action = "newUpdatedBlog/<%=blog.getBlogID()%>" method="GET">
+                <form action = "newUpdatedBlog/<%=blog.getBlogID()%>" method="post">
 
 
                 <div class="divide-y divide-gray-200">
@@ -54,6 +54,11 @@
                         <div class="flex flex-col">
                             <label class="leading-loose">Author</label>
                             <input type="text" name="author" value="<%=blog.getAuthor()%>" class="px-4 py-2 border focus:ring-gray-500 focus:border-gray-900 w-full sm:text-sm border-gray-300 rounded-md focus:outline-none text-gray-600" placeholder="Author">
+                        </div>
+
+                        <div class="flex flex-col">
+                            <label class="leading-loose">Blog Image</label>
+                            <input type="text" name="blogImage" value="<%=blog.getBlogImage()%>" class="px-4 py-2 border focus:ring-gray-500 focus:border-gray-900 w-full sm:text-sm border-gray-300 rounded-md focus:outline-none text-gray-600" placeholder="blogImage">
                         </div>
 
                         <div class="flex flex-col">

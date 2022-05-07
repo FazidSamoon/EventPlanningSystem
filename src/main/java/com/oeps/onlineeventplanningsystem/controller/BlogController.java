@@ -25,12 +25,13 @@ public class BlogController {
     BlogRepo blogRepo;
 
     @GetMapping("/addNewBlog")
-    public String addBlog(String blogTitle, String author, String blogDescription){
+    public String addBlog(String blogTitle, String author, String blogDescription , String blogImage){
         Blog blog = new Blog();
 
         blog.setBlogTitle(blogTitle);
         blog.setAuthor(author);
         blog.setBlogDescription(blogDescription);
+        blog.setBlogImage(blogImage);
 
         blogRepo.save(blog);
 
@@ -65,7 +66,7 @@ public class BlogController {
     @GetMapping("/updateBlog/{blogID}")
     public ModelAndView getExistingBlogs(@PathVariable("blogID") int blogID){
         Blog blog = blogRepo.findById(blogID).get();
-        return new ModelAndView("updateBlog", new HashMap(){
+        return new ModelAndView("/updateBlog", new HashMap(){
             {
                 put("blogC" , blog);
             }
@@ -73,16 +74,19 @@ public class BlogController {
         },HttpStatus.OK);
     }
 
-    @GetMapping("/updateBlog/newUpdatedBlog/{blogID}")
-    public String getNewUpdatedBlogs(@PathVariable("blogID") int blogID ,String blogTitle, String author, String blogDescription){
+    @PostMapping("/updateBlog/newUpdatedBlog/{blogID}")
+    public String getNewUpdatedBlogs(@PathVariable("blogID") int blogID ,String blogTitle, String author, String blogDescription , String blogImage){
 
         Blog blog2 = blogRepo.findById(blogID).get();
 
         blog2.setBlogTitle(blogTitle);
         blog2.setAuthor(author);
         blog2.setBlogDescription(blogDescription);
+        blog2.setBlogImage(blogImage);
 
-        return "manageBlogs";
+        blogRepo.save(blog2);
+
+        return "redirect:/manageBlogs";
 
     }
 

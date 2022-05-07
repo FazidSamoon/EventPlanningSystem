@@ -11,17 +11,19 @@ public class Blog {
     private String blogTitle;
     private String author;
     private String blogDescription;
+    private String blogImage;
 
 
     public Blog() {
 
     }
 
-    public Blog(int blogID, String blogTitle, String author, String blogDescription) {
+    public Blog(int blogID, String blogTitle, String author, String blogDescription, String blogImage) {
         this.blogID = blogID;
         this.blogTitle = blogTitle;
         this.author = author;
         this.blogDescription = blogDescription;
+        this.blogImage = blogImage;
     }
 
     public int getBlogID() {
@@ -54,5 +56,13 @@ public class Blog {
 
     public void setBlogDescription(String blogDescription) {
         this.blogDescription = blogDescription;
+    }
+
+    public String getBlogImage() {
+        return blogImage;
+    }
+
+    public void setBlogImage(String blogImage) {
+        this.blogImage = blogImage;
     }
 }
