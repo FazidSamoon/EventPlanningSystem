@@ -1,35 +1,41 @@
+<%@ page import="javax.management.relation.Relation" %>
+
+<html>
 <!-- component -->
-<style>
-    :root {
-        --main-color: #4a76a8;
-    }
+<head>
+    <title>User Profile</title>
 
-    .bg-main-color {
-        background-color: var(--main-color);
-    }
+    <style>
+        :root {
+            --main-color: #4a76a8;
+        }
+    
+        .bg-main-color {
+            background-color: var(--main-color);
+        }
+    
+        .text-main-color {
+            color: var(--main-color);
+        }
+    
+        .border-main-color {
+            border-color: var(--main-color);
+        }
+    </style>
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+    
+</head>
 
-    .text-main-color {
-        color: var(--main-color);
-    }
-
-    .border-main-color {
-        border-color: var(--main-color);
-    }
-</style>
-<link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
-<script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
-
-
+<body>
 
 <div class="bg-gray-100">
     <div class="relative mt-0 pt-0">
         <%@ include file="./components/header.jsp" %>
      </div>
  <div class="w-full text-white bg-main-color">
-    
-    
 
-    <div class="container mx-auto my-5 p-5">
+    <div class="container mx-auto  p-5">
         <div class="md:flex no-wrap md:-mx-2 ">
             <!-- Left Side -->
             <div class="w-full md:w-3/12 md:mx-2">
@@ -40,8 +46,8 @@
                             src="https://www.kindpng.com/picc/m/495-4952535_create-digital-profile-icon-blue-user-profile-icon.png"
                             alt="">
                     </div>
-                    <h1 class="text-gray-900 font-bold text-xl leading-8 my-1">${userSession.getUsername()}</h1>
-                    <h3 class="text-gray-600 font-lg text-semibold leading-6">Owner at Her Company Inc.</h3>
+                    <h1 class="text-gray-900 text-center font-bold text-xl leading-8 my-1">${userSession.getUsername()}</h1>
+                    
                     <p class="text-sm text-gray-500 hover:text-gray-600 leading-6">Lorem ipsum dolor sit amet
                         consectetur adipisicing elit.
                         Reprehenderit, eligendi dolorum sequi illum qui unde aspernatur non deserunt</p>
@@ -60,46 +66,7 @@
                 </div>
                 <!-- End of profile card -->
                 <div class="my-4"></div>
-                <!-- Friends card -->
-                <div class="bg-white p-3 hover:shadow">
-                    <div class="flex items-center space-x-3 font-semibold text-gray-900 text-xl leading-8">
-                        <span class="text-green-500">
-                            <svg class="h-5 fill-current" xmlns="http://www.w3.org/2000/svg" fill="none"
-                                viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-                            </svg>
-                        </span>
-                        <span>Similar Profiles</span>
-                    </div>
-                    <div class="grid grid-cols-3">
-                        <div class="text-center my-2">
-                            <img class="h-16 w-16 rounded-full mx-auto"
-                                src="https://cdn.australianageingagenda.com.au/wp-content/uploads/2015/06/28085920/Phil-Beckett-2-e1435107243361.jpg"
-                                alt="">
-                            <a href="#" class="text-main-color">Kojstantin</a>
-                        </div>
-                        <div class="text-center my-2">
-                            <img class="h-16 w-16 rounded-full mx-auto"
-                                src="https://widgetwhats.com/app/uploads/2019/11/free-profile-photo-whatsapp-4.png"
-                                alt="">
-                            <a href="#" class="text-main-color">James</a>
-                        </div>
-                        <div class="text-center my-2">
-                            <img class="h-16 w-16 rounded-full mx-auto"
-                                src="https://lavinephotography.com.au/wp-content/uploads/2017/01/PROFILE-Photography-112.jpg"
-                                alt="">
-                            <a href="#" class="text-main-color">Natie</a>
-                        </div>
-                        <div class="text-center my-2">
-                            <img class="h-16 w-16 rounded-full mx-auto"
-                                src="https://bucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com/public/images/f04b52da-12f2-449f-b90c-5e4d5e2b1469_361x361.png"
-                                alt="">
-                            <a href="#" class="text-main-color">Casey</a>
-                        </div>
-                    </div>
-                </div>
-                <!-- End of friends card -->
+                
             </div>
             <!-- Right Side -->
             <div class="w-full md:w-9/12 mx-2 h-64">
@@ -145,12 +112,57 @@
                         </div>
                     </div>
 
-                    <button
-                        class="block w-full text-blue-800 text-sm font-semibold rounded-lg hover:bg-gray-100 focus:outline-none focus:shadow-outline focus:bg-gray-100 hover:shadow-xs p-3 my-4"
-                        href="/editUserInfo">
-                    >
-                        Edit Info</button>
+                    <%
+                        if (session.getAttribute("userSession") != null) {
+                    %>
+
+                    <div class="flex row justify-center">
+                        <a href="/editUserInfo">
+                            <button
+                                class="block  w-48 text-white  bg-blue-400 text-sm font-semibold rounded-lg hover:bg-blue-900 focus:outline-none focus:shadow-outline focus:bg-gray-100 hover:shadow-xs p-3 my-4"
+                            >
+                    
+                            Edit Info
+                            </button>
+                        </a>
+
+
+                        
+
+                        <a href="/deleteAccount">
+                            <button
+                                class="block w-48 bg-red-400 ml-4 text=text-white text-sm font-semibold rounded-lg hover:bg-red-900 focus:outline-none focus:shadow-outline focus:bg-gray-100 hover:shadow-xs p-3 my-4"
+                                >
+                            
+                                Delete Account
+                            </button>
+                        </a>
+                    
+
+
+                    <% } %>
+
+                        <%
+                            if (session.getAttribute("roleSession").toString().equals("ADMIN") && session.getAttribute("userSession") != null) {
+                        %>
+
+                                <button
+                                    class="block w-48 bg-green-400 ml-4 text=text-white text-sm font-semibold rounded-lg hover:bg-green-900 focus:outline-none focus:shadow-outline focus:bg-gray-100 hover:shadow-xs p-3 my-4"
+                                >
+                                Admin
+                                </button>
+
+
+
+                        <%
+                            }
+                        %>
+                
+                    </div>
+                    
                 </div>
+
+
                 <!-- End of about section -->
 
                 <div class="my-4"></div>
@@ -222,3 +234,6 @@
         </div>
     </div>
 </div>
+<%@ include file="./components/footer.jsp" %>
+</body>
+</html>

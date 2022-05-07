@@ -59,5 +59,23 @@ public class HomeController {
          return "editUserInfo";
     }
 
+    @GetMapping("/servicesControlAdmin")
+    public String getServicesControlAdmin(){
+         return "servicesControlAdmin";
+    }
 
+    @GetMapping("/deleteAccount")
+    public String getDeleteAccount(){
+         return "deleteAccount";
+    }
+
+    @GetMapping("/createService")
+    public String getCreateService(){
+         return "createService";
+    }
+
+    @GetMapping("/editService")
+    public String getEditService(){
+         return "editService";
+    }
 }

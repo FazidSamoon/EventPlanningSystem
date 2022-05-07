@@ -24,7 +24,7 @@
         }
        
     </style>
-    <title>Login Page</title>
+    <title>Simple Login Page</title>
   </head>
   <body style="background-image: url('https://undsgn.com/wp-content/uploads/2018/04/ltotbngnzzu-uai-1350x759.jpg');">
     <div class="flex p-1 py-12  place-content-center">

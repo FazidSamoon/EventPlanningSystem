@@ -11,10 +11,8 @@
 <%--    header--%>
 <%@ include file="./components/header.jsp" %>
 
-<div class="overflow-x-hidden bg-gray-100">
+<div class="overflow-x-hidden bg-[#4a76a8]">
 
-    <%--    header--%>
-    <%@ include file="./components/header.jsp" %>
 
     <div class="px-6 py-8">
         <div class="container flex justify-between mx-auto">
