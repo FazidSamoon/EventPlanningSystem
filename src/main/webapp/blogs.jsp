@@ -57,6 +57,10 @@
                     Author: <%=blogn.getAuthor()%>
                 </p>
 
+                <p class="mt-2 text-gray-600  font-bold">
+                    Author: <%=blogn.getBlogImage()%>
+                </p>
+
                 <p class="mt-2 text-gray-600">
                     <%=blogn.getBlogDescription()%>
                 </p>

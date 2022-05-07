@@ -35,7 +35,7 @@ public class BlogController {
 
         blogRepo.save(blog);
 
-        return "blogs";
+        return "redirect:blogs";
     }
 
 
