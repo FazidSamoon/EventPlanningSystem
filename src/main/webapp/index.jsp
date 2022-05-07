@@ -6,78 +6,97 @@
         <script src="https://cdn.tailwindcss.com"></script>
     </head>
 
-    <body>
+    <body class="bg-[#4a76a8]">
 
 
-
-<!-- hero section -->
-<style>
-    [x-cloak] { display: none; }
-</style>
-
-<div class="relative h-screen lg:h-screen w-full bg-cover bg-no-repeat" style="background-image: url(https://images.unsplash.com/photo-1514525253161-7a46d19cd819?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1267&q=80);">
-
-<div class="absolute inset-0 bg-gray-900 opacity-75"></div>
-<div class="bg-red">
-    <%--    header--%>
-    <%@ include file="./components/header.jsp" %>
-</div>
-
-    <div class="h-full container mx-auto flex items-center justify-center ">
-
-        <div class="flex flex-col items-center z-10">
-            <h1 class="mx-6 mt-1 text-xl font-bold text-center text-white text-5xl md:text-6xl sm:text-center sm:mx-0">Here a really cool title!</h1>
-            <p class="text-white text-xl font-medium w-2/3 text-center my-6">Some fancy text to invite to an event, the place of the event and the date of the event.</p>
-            <div class="flex flex-col md:flex-row justify-center mt-10">
-                <a href="#" class="py-2 px-8 rounded-full border-2 border-pink-500 text-white hover:bg-pink-500 text-center m-2">Tickets</a>
-                <a href="#" class="py-2 px-8 rounded-full border-2 border-pink-500 text-white bg-pink-500 hover:bg-transparent text-center m-2">Coming soon</a>
-            </div>
+        <div class="bg-red">
+            <%--    header--%>
+            <%@ include file="./components/header.jsp" %>
         </div>
 
-    </div>
-<div>
 
 
-    <!-- hero section 2 -->
-<style>
-    [x-cloak] { display: none; }
-</style>
-
-<div class="relative h-screen lg:h-screen w-full bg-cover bg-no-repeat" style="background-image: url(https://images.unsplash.com/photo-1514525253161-7a46d19cd819?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1267&q=80);">
-
-<div class="absolute inset-0 bg-gray-900 opacity-75"></div>
-
-
-    <div class="h-full container mx-auto flex items-center justify-center">
-
-        <div class="flex flex-col items-center z-10">
-            <h1 class="mx-6 mt-1 text-xl font-bold text-center text-white text-5xl md:text-6xl sm:text-center sm:mx-0">Here a really cool title!</h1>
-            <p class="text-white text-xl font-medium w-2/3 text-center my-6">Some fancy text to invite to an event, the place of the event and the date of the event.</p>
-            <div class="flex flex-col md:flex-row justify-center mt-10">
-                <a href="#" class="py-2 px-8 rounded-full border-2 border-pink-500 text-white hover:bg-pink-500 text-center m-2">Tickets</a>
-                <a href="#" class="py-2 px-8 rounded-full border-2 border-pink-500 text-white bg-pink-500 hover:bg-transparent text-center m-2">Coming soon</a>
+        <div class="container mt-8 mx-auto px-6">
+            <div class="h-64 rounded-md overflow-hidden bg-cover bg-center" style="
+            background-image: url('https://myschedulestudio.net/wp-content/uploads/2021/12/1548357920228.jpeg');
+          ">
+              <div class="bg-gray-900 bg-opacity-50 flex items-center h-full">
+                <div class="px-10 max-w-xl">
+                  <h2 class="text-4xl text-white font-semibold">Create Event</h2>
+                  <p class="mt-2 text-gray-400">
+                    Lorem ipsum dolor sit, amet nemo eum tempore sapiente vero.
+                  </p>
+                  <a href="/schedule">
+                    <button
+                      class="flex items-center mt-4 px-4 py-3 bg-blue-600 text-white text-sm uppercase font-medium rounded hover:bg-blue-500 focus:outline-none focus:bg-blue-500">
+                      <span>Create event</span>
+                      <svg class="h-5 w-5 mx-2" fill="none" stroke-linecap="round" stroke-linejoin="round"
+                        stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
+                        <path d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                      </svg>
+                    </button>
+                  </a>
+                </div>
+              </div>
             </div>
+
+        <div class="md:flex mt-8 md:-mx-4">
+            <div class="w-full h-64 md:mx-4 rounded-md overflow-hidden bg-cover bg-center md:w-1/2" style="
+            background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT77pwDtAP_IQHZvHb4qihPVBRI5CbHyMTE3_7w2AJtsUvIWVJcQ7VtACYkJzcVngIg9A&usqp=CAU');
+          ">
+              <div class="bg-gray-900 bg-opacity-50 flex items-center h-full">
+                <div class="px-10 max-w-xl">
+                  <h2 class="text-2xl text-white font-semibold">Services</h2>
+                  <p class="mt-2 text-gray-400">
+                    Lorem ipsum dolor sit, amet nemo eum tempore sapiente vero.
+                  </p>
+                  <a href="/support">
+                    <button
+                      class="flex items-center mt-4 px-4 py-3 bg-blue-600 text-white text-sm uppercase font-medium rounded hover:bg-blue-500 focus:outline-none focus:bg-blue-500">
+                      <span>Search Services</span>
+                      <svg class="h-5 w-5 mx-2" fill="none" stroke-linecap="round" stroke-linejoin="round"
+                        stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
+                        <path d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                      </svg>
+                    </button>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="w-full h-64 mt-8 md:mx-4 rounded-md overflow-hidden bg-cover bg-center md:mt-0 md:w-1/2"
+              style="
+            background-image: url('https://e7.pngegg.com/pngimages/961/842/png-clipart-petit-fute-munich-ravensburger-puzzle-collage-oktoberfest-celebrations-plus-germany.png');
+          ">
+              <div class="bg-gray-900 bg-opacity-50 flex items-center h-full">
+                <div class="px-10 max-w-xl">
+                  <h2 class="text-2xl text-white font-semibold">Read Blogs</h2>
+                  <p class="mt-2 text-gray-400">
+                    Lorem ipsum dolor sit, amet nemo eum tempore sapiente vero.
+                  </p>
+                  <a href="/signup">
+                    <!-- <button
+                      class="flex items-center mt-4 text-white text-sm uppercase font-medium rounded hover:underline focus:outline-none">
+                      <span>Read Now</span>
+                      <svg class="h-5 w-5 mx-2" fill="none" stroke-linecap="round" stroke-linejoin="round"
+                        stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
+                        <path d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                      </svg>
+                    </button> -->
+                    <button
+                      class="flex items-center mt-4 px-4 py-3 bg-blue-600 text-white text-sm uppercase font-medium rounded hover:bg-blue-500 focus:outline-none focus:bg-blue-500">
+                      <span>Read Blogs</span>
+                      <svg class="h-5 w-5 mx-2" fill="none" stroke-linecap="round" stroke-linejoin="round"
+                        stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
+                        <path d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                      </svg>
+                    </button>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
 
-    </div>
-<div>
-        <%
-              if (session.getAttribute("userSession") != null) {
-        %>
-
-    <h1>hello ${userSession.getUsername()}</h1>
-    <h1>hello ${userSession.getEmail()}</h1>
-    <h1>hello ${userSession.getPhone()}</h1>
-    <h1>hello ${userSession.getAddress()}</h1>
-    <h1>hello ${userSession.getRole()}</h1>
-    <h1>hello ${userSession.getUserID()}</h1>
-
-        <%
-              }
-        %>
-
-
-
-<%@ include file="./components/footer.jsp" %>
+        <%@ include file="./components/footer.jsp" %>
     </body>
 </html>

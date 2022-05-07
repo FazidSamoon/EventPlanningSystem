@@ -86,11 +86,11 @@
 <div class="absolute w-screen h-screen flex">
     <div class="hidden lg:block w-5/12 h-full">
       <img
-        src="https://images.unsplash.com/photo-1500672860114-9e913f298978?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=1049&amp;q=80"
+        src="https://savor.lk/wp-content/uploads/2021/03/4Y7B0245-2.jpg"
         class="w-full h-full object-cover"
       />
     </div>
-    <div class="w-full lg:w-7/12 overflow-scroll py-24 relative">
+    <div class="w-full  lg:w-7/12 overflow-scroll py-24 relative">
       <a
         href="#"
         class="absolute text-3xl text-blue-400 cursor-pointer top-0 right-0 mt-6 mr-8"

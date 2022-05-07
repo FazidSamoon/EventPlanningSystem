@@ -6,7 +6,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
-<body>
+<body class="bg-[#4a76a8]">
 
 <%--    header--%>
 <%@ include file="./components/header.jsp" %>
@@ -14,12 +14,12 @@
 
 
 <!-- ====== Services Section Start -->
-<section class="pt-20 lg:pt-[120px] pb-12 lg:pb-[90px]">
+<section class="pt-20 lg:pt-[120px] pb-12 lg:pb-[90px] bg-[#4a76a8]">
     <div class="container">
         <div class="flex flex-wrap -mx-4">
             <div class="w-full px-4">
                 <div class="text-center mx-auto mb-12 lg:mb-20 max-w-[510px]">
-               <span class="font-semibold text-lg text-primary mb-2 block">
+               <span class="font-semibold text-lg text-white mb-2 block">
                Our Services
                </span>
                     <h2
@@ -34,7 +34,7 @@
                     >
                         What We Offer
                     </h2>
-                    <p class="text-base text-body-color">
+                    <p class="text-base text-gray-100">
                         There are many variations of passages of Lorem Ipsum available
                         but the majority have suffered alteration in some form.
                     </p>
