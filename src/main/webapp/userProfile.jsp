@@ -146,12 +146,13 @@
                             if (session.getAttribute("roleSession").toString().equals("ADMIN") && session.getAttribute("userSession") != null) {
                         %>
 
+                        <a href="/servicesControlAdmin">
                                 <button
                                     class="block w-48 bg-green-400 ml-4 text=text-white text-sm font-semibold rounded-lg hover:bg-green-900 focus:outline-none focus:shadow-outline focus:bg-gray-100 hover:shadow-xs p-3 my-4"
                                 >
-                                Admin
+                                Service Control
                                 </button>
-
+                        </a>
 
 
                         <%

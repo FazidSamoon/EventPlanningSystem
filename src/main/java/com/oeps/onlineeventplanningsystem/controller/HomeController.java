@@ -2,6 +2,7 @@ package com.oeps.onlineeventplanningsystem.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 
 
 @Controller
@@ -59,10 +60,7 @@ public class HomeController {
          return "editUserInfo";
     }
 
-    @GetMapping("/servicesControlAdmin")
-    public String getServicesControlAdmin(){
-         return "servicesControlAdmin";
-    }
+
 
     @GetMapping("/deleteAccount")
     public String getDeleteAccount(){
@@ -77,5 +75,10 @@ public class HomeController {
     @GetMapping("/editService")
     public String getEditService(){
          return "editService";
+    }
+
+    @PostMapping("/servicesControlAdmin")
+    public String getServiceControlAdmin(){
+         return "servicesControlAdmin";
     }
 }
