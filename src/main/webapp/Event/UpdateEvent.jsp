@@ -31,8 +31,6 @@
     <div class="row justify-content-md-center">
         <div class="col-md-8 ">
 
-
-
             <form action="saveEvent" method="post">
 
                 <div class="form-group">

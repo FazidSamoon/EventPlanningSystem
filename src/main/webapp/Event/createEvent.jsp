@@ -6,7 +6,6 @@
     <meta id="" name="viewport" content= id="nameth=device id=""-nameth, initial-scale=1.0">
     <title>Create an event</title>
     <script src="https://cdn.tailwindcss.com"></script>
-<%--    <script src="https://unpkg.com/flowbite@1.4.5/dist/datepicker.js"></script>--%>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
     <style >
@@ -27,13 +26,14 @@
     <br>
 
 
-    <div class="container-fluid py-4 my-4  rounded bg-blue-800 text-white w-50">
+    <div class="container-fluid py-4 my-4  rounded bg-blue-900 text-white w-50">
         <div class="row justify-content-md-center">
             <div class="col-md-8 ">
 
 
 
 <form action="saveEvent" method="post">
+    <p class="h2 text-center" > Create an event </p>
 
     <div class="form-group">
         <label for="eventName">Event </label>
@@ -51,7 +51,7 @@
         <label for="eventLocation">Location</label>
         <input type="Text" class="form-control" id="eventLocation" name="eventLocation" placeholder="select location">
     </div>
-    <button type="submit" class="btn btn-outline-primary" >Submit</button>
+    <button type="submit" class="btn btn-success text-white bg-green-600" >Submit</button>
 
 </form>
             </div>
