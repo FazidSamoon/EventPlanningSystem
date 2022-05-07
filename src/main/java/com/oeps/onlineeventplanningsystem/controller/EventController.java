@@ -28,8 +28,6 @@ public class EventController {
 
         String username = ((User) session.getAttribute("userSession")).getName();
         event.setUsername(username);
-        //System.out.println(event);
-        System.out.println(username);
         eventRepo.save(event);
 
         return "index";
