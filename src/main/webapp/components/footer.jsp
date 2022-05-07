@@ -10,7 +10,7 @@
    <footer class="w-full mt-8 text-center bg-blue-900 text-white">
       <div class="container px-6 pt-6">
         <div class="flex justify-center mb-6">
-          <a href="#!" type="button" class="rounded-full border-2 border-white text-white leading-normal uppercase hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out w-9 h-9 m-1">
+          <a href="https://www.facebook.com/"  target="_blank" type="button" class="rounded-full border-2 border-white text-white leading-normal uppercase hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out w-9 h-9 m-1">
             <svg aria-hidden="true"
             focusable="false"
             data-prefix="fab"
@@ -27,7 +27,7 @@
             </svg>
           </a>
     
-          <a href="#!" type="button" class="rounded-full border-2 border-white text-white leading-normal uppercase hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out w-9 h-9 m-1">
+          <a href="https://twitter.com" target="_blank" type="button" class="rounded-full border-2 border-white text-white leading-normal uppercase hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out w-9 h-9 m-1">
             <svg aria-hidden="true"
             focusable="false"
             data-prefix="fab"
@@ -44,7 +44,7 @@
             </svg>
           </a>
     
-          <a href="#!" type="button" class="rounded-full border-2 border-white text-white leading-normal uppercase hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out w-9 h-9 m-1">
+          <a href="https://accounts.google.com/" target="_blank" type="button" class="rounded-full border-2 border-white text-white leading-normal uppercase hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out w-9 h-9 m-1">
             <svg aria-hidden="true"
             focusable="false"
             data-prefix="fab"
@@ -61,7 +61,7 @@
             </svg>
           </a>
     
-          <a href="#!" type="button" class="rounded-full border-2 border-white text-white leading-normal uppercase hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out w-9 h-9 m-1">
+          <a href="https://www.instagram.com/" target="_blank" type="button" class="rounded-full border-2 border-white text-white leading-normal uppercase hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out w-9 h-9 m-1">
             <svg aria-hidden="true"
             focusable="false"
             data-prefix="fab"
@@ -78,7 +78,7 @@
             </svg>
           </a>
     
-          <a href="#!" type="button" class="rounded-full border-2 border-white text-white leading-normal uppercase hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out w-9 h-9 m-1">
+          <a href="https://www.linkedin.com/" target="_blank" type="button" class="rounded-full border-2 border-white text-white leading-normal uppercase hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out w-9 h-9 m-1">
             <svg aria-hidden="true"
             focusable="false"
             data-prefix="fab"
@@ -95,7 +95,7 @@
             </svg>
           </a>
     
-          <a href="#!" type="button" class="rounded-full border-2 border-white text-white leading-normal uppercase hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out w-9 h-9 m-1">
+          <a href="https://github.com/FazidSamoon/EventPlanningSystem.git"  target="_blank" type="button" class="rounded-full border-2 border-white text-white leading-normal uppercase hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out w-9 h-9 m-1">
             <svg aria-hidden="true"
             focusable="false"
             data-prefix="fab"
@@ -115,8 +115,7 @@
       </div>
     
       <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.2);">
-        © 2021 Copyright:
-        <a class="text-whitehite" href="https://tailwind-elements.com/">Tailwind Elements</a>
+         2022 Allrights reserved
       </div>
     </footer>
 

@@ -22,7 +22,12 @@ public class Event {
         return username;
     }
 
-    public Event(String eventName, String eventDescription, String eventDate, String eventLocation , String username) {
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+
+    public Event(String eventName, String eventDescription, String eventDate, String eventLocation, String username) {
         this.eventName = eventName;
         this.eventDescription = eventDescription;
         this.eventDate = eventDate;
@@ -72,6 +77,4 @@ public class Event {
     public void setEventLocation(String eventLocation) {
         this.eventLocation = eventLocation;
     }
-
-
 }

@@ -6,7 +6,7 @@
     </head>
     <body class="bg-[#4a76a8]">
 
-        <%@ include file="./components/header.jsp" %>
+        <%@ include file="components/header.jsp" %>
 
 
 
@@ -60,7 +60,7 @@
         </section>
 
 
-        <%@ include file="./components/footer.jsp" %>
+        <%@ include file="components/footer.jsp" %>
         
     </body>
 </html>
