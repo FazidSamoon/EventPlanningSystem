@@ -26,7 +26,7 @@
                   <p class="mt-2 text-gray-400">
                     Lorem ipsum dolor sit, amet nemo eum tempore sapiente vero.
                   </p>
-                  <a href="/schedule">
+                  <a href="/createEvent">
                     <button
                       class="flex items-center mt-4 px-4 py-3 bg-blue-600 text-white text-sm uppercase font-medium rounded hover:bg-blue-500 focus:outline-none focus:bg-blue-500">
                       <span>Create event</span>

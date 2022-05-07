@@ -10,7 +10,7 @@
     <script src="https://unpkg.com/flowbite@1.4.5/dist/datepicker.js"></script>
 </head>
 <body>
-<%@ include file="components/header.jsp" %>
+<%@ include file="../components/header.jsp" %>
 
     <% for(int i =0; i>6; i++){
         %>
@@ -80,5 +80,5 @@
     </tr>
     </tbody>
 </table>
-    <%@ include file="components/footer.jsp" %>
+    <%@ include file="../components/footer.jsp" %>
 </body>
