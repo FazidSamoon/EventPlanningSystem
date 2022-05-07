@@ -15,7 +15,7 @@
 <body>
     <div class="bg-red">
         <%--    header--%>
-        <%@ include file="../components/header.jsp" %>
+        <%@ include file="components/header.jsp" %>
     </div>
     <br>
     <br>
@@ -154,7 +154,7 @@
 <%--        </div>--%>
 
 <div class="container" >
-<form action="saveEvent">
+<form action="saveEvent" method="post">
 
     <div class="form-group">
         <label for="eventName">Event name</label>
@@ -164,14 +164,21 @@
         <label for="eventDescription">Event Description</label>
         <textarea class="form-control" id="eventDescription" rows="3"></textarea>
     </div>
-
-
+    <div class="form-group">
+        <label for="eventDate">Date</label>
+        <input type="Text" class="form-control" id="eventDate" placeholder="Enter Date">
+    </div>
+    <div class="form-group">
+        <label for="eventLocation">Location</label>
+        <input type="Text" class="form-control" id="eventLocation" placeholder="Enter Date">
+    </div>
+    <button type="submit" class="btn btn-outline-primary" >Submit</button>
 
 </form>
 </div>
 
 
             <!-- Code block ends -->
-    <%@ include file="../components/footer.jsp" %>
+    <%@ include file="components/footer.jsp" %>
 </body>
 </html>

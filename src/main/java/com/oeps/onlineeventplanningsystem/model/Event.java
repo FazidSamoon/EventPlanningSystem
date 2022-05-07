@@ -22,7 +22,7 @@ public class Event {
         return username;
     }
 
-    public Event(String eventName, String eventDescription, String eventDate, String eventLocation , String username) {
+    public Event(String eventName, String eventDescription, String eventDate, String eventLocation ) {
         this.eventName = eventName;
         this.eventDescription = eventDescription;
         this.eventDate = eventDate;

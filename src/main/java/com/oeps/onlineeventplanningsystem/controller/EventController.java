@@ -14,7 +14,7 @@ public class EventController {
 
     @RequestMapping("/createEvent")
     public String createEvent() {
-        return "createEvent";
+        return "/createEvent";
     }
     @PostMapping("/saveEvent")
     public String saveEvent(String eventName, String eventDescription, String eventDate, String eventLocation ) {
@@ -26,7 +26,7 @@ public class EventController {
 
         eventRepo.save(event);
 
-        return "EventView";
+        return "index";
     }
     @RequestMapping("/viewEvent")
     public String viewEvent() {
