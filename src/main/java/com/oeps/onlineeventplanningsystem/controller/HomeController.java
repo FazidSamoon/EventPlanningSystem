@@ -25,19 +25,19 @@ public class HomeController {
         return "login";
     }
 
-    @GetMapping("/users")
-    public String getUsers() {
-        return "userProfile";
-    }
+//    @GetMapping("/users")
+//    public String getUsers() {
+//        return "userProfile";
+//    }
 
     @GetMapping("/events")
     public String getEvents() {
         return "events";
     }
 
-    @GetMapping("/event")
+    @GetMapping("/viewEvent")
     public String getEvent() {
-        return "event";
+        return "/Event/EventView";
     }
 
     @GetMapping("/dashboard")
@@ -81,4 +81,6 @@ public class HomeController {
     public String getServiceControlAdmin(){
          return "servicesControlAdmin";
     }
+
+
 }

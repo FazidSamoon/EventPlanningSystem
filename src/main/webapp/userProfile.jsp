@@ -1,4 +1,5 @@
 <%@ page import="javax.management.relation.Relation" %>
+<%@ page import="com.oeps.onlineeventplanningsystem.model.User" %>
 
 <html>
 <!-- component -->
@@ -35,6 +36,10 @@
      </div>
  <div class="w-full text-white bg-main-color">
 
+     <%
+         User userDetails = (User) request.getAttribute("userInfo");
+     %>
+
     <div class="container mx-auto  p-5">
         <div class="md:flex no-wrap md:-mx-2 ">
             <!-- Left Side -->
@@ -46,7 +51,7 @@
                             src="https://www.kindpng.com/picc/m/495-4952535_create-digital-profile-icon-blue-user-profile-icon.png"
                             alt="">
                     </div>
-                    <h1 class="text-gray-900 text-center font-bold text-xl leading-8 my-1">${userSession.getUsername()}</h1>
+                    <h1 class="text-gray-900 text-center font-bold text-xl leading-8 my-1"><%=userDetails.getUsername()%></h1>
                     
                     <p class="text-sm text-gray-500 hover:text-gray-600 leading-6">Lorem ipsum dolor sit amet
                         consectetur adipisicing elit.
@@ -86,26 +91,26 @@
                     <div class="text-gray-700">
                         <div class="grid md:grid-cols-2 text-sm">
                             <div class="grid grid-cols-2">
-                                <div class="px-4 py-2 font-semibold">First Name</div>
-                                <div class="px-4 py-2">${userSession.getUsername()}</div>
+                                <div class="px-4 py-2 font-semibold">UserName</div>
+                                <div class="px-4 py-2"><%=userDetails.getUsername()%></div>
                             </div>
                             <div class="grid grid-cols-2">
-                                <div class="px-4 py-2 font-semibold">Last Name</div>
-                                <div class="px-4 py-2">${userSession.getUsername()}</div>
+                                <div class="px-4 py-2 font-semibold">Name</div>
+                                <div class="px-4 py-2"><%=userDetails.getName()%></div>
                             </div>
                             <div class="grid grid-cols-2">
                                 <div class="px-4 py-2 font-semibold">Contact No.</div>
-                                <div class="px-4 py-2">${userSession.getPhone()}</div>
+                                <div class="px-4 py-2"><%=userDetails.getPhone()%></div>
                             </div>
                             <div class="grid grid-cols-2">
                                 <div class="px-4 py-2 font-semibold">Current Address</div>
-                                <div class="px-4 py-2">${userSession.getAddress()}</div>
+                                <div class="px-4 py-2"><%=userDetails.getAddress()%></div>
                             </div>
 
                             <div class="grid grid-cols-2">
                                 <div class="px-4 py-2 font-semibold">Email.</div>
                                 <div class="px-4 py-2">
-                                    <a class="text-blue-800" href="${userSession.getEmail()}">${userSession.getEmail()}</a>
+                                    <a class="text-blue-800" href="<%=userDetails.getEmail()%>"><%=userDetails.getEmail()%></a>
                                 </div>
                             </div>
 
@@ -140,10 +145,10 @@
                     
 
 
-                    <% } %>
+
 
                         <%
-                            if (session.getAttribute("roleSession").toString().equals("ADMIN") && session.getAttribute("userSession") != null) {
+                            if (((User)session.getAttribute("userSession")).getRole().equals("ADMIN")) {
                         %>
 
                         <a href="/servicesControlAdmin">
@@ -158,7 +163,8 @@
                         <%
                             }
                         %>
-                
+
+                        <% } %>
                     </div>
                     
                 </div>

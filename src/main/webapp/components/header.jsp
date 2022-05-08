@@ -37,9 +37,9 @@
         <!-- Mobile Menu open: "block", Menu closed: "hidden" -->
         <div class="md:flex items-center" :class="isOpen ? 'block' : 'hidden'">
           <div class="flex flex-col mt-2 md:flex-row md:mt-0 md:mx-1">
-            <a class="my-1 text-sm text-white leading-5 hover:text-gray-400 hover:underline md:mx-4 md:my-0" href="#">Home</a>
+            <a class="my-1 text-sm text-white leading-5 hover:text-gray-400 hover:underline md:mx-4 md:my-0" href="/">Home</a>
             <a class="my-1 text-sm text-white leading-5 hover:text-gray-400 hover:underline md:mx-4 md:my-0" href="/blogs">Blog</a>
-            <a class="my-1 text-sm text-white leading-5 hover:text-gray-400 hover:underline md:mx-4 md:my-0" href="/event">Events</a>
+            <a class="my-1 text-sm text-white leading-5 hover:text-gray-400 hover:underline md:mx-4 md:my-0" href="/viewEvent">Events</a>
             <a class="my-1 text-sm text-white leading-5 hover:text-gray-400 hover:underline md:mx-4 md:my-0" href="/services">Services</a>
           </div>
   
@@ -64,7 +64,7 @@
             <a class="block w-1/2 px-3 py-2 mx-1 rounded text-center text-sm bg-blue-500 font-medium text-white leading-5 hover:bg-blue-600 md:mx-0 md:w-auto" href="/logout">Logout</a>
 
             
-            <a href="/users">
+            <a href="/users/${userSession.getUserID()}">
               <img class="h-[35px] w-[35px] cursor-pointer ml-4 " src="./images/userAvatar.png" alt="" >
             </a>
 
