@@ -20,4 +20,12 @@ public class RestResponceEntityExceptionHandler extends ResponseEntityExceptionH
 
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(message);
     }
+
+    @ExceptionHandler(UsernamePasswordMissmatchException.class)
+    public ResponseEntity <ErrorMessage> userNamePasswordMissMatchException(UsernamePasswordMissmatchException exception , WebRequest request) {
+
+        ErrorMessage message = new ErrorMessage(HttpStatus.NOT_FOUND,exception.getMessage());
+
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(message);
+    }
 }

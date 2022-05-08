@@ -93,7 +93,7 @@ public class UserController {
 
     @PostMapping("/deleteAccount/{id}")
     public String deleteUser(@PathVariable("id") int id , String userName, String password) throws UsernamePasswordMissmatchException, UserNotFoundException {
-        Optional<User> user = userRepo.findById(id);
+        Optional<User> user = userRepo.findByUsernameAndPassword(userName, password);
 
 
         try {
@@ -101,7 +101,7 @@ public class UserController {
                 userRepo.delete(user.get());
 
             }
-            return "index";
+            return "redirect:/login";
         } catch (InputMismatchException e1) {
             throw new UsernamePasswordMissmatchException("Username or password is incorrect" );
         }
