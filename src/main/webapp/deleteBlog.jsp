@@ -46,13 +46,13 @@
                             <div class="flex flex-col">
                                 <label class="leading-loose">Blog ID</label>
                                 <label>
-                                    <input type="number" name="blogID" class="px-4 py-2 border focus:ring-gray-500 focus:border-gray-900 w-full sm:text-sm border-gray-300 rounded-md focus:outline-none text-gray-600" placeholder="Enter your blog Id">
+                                    <input type="number" name="blogID" class="px-4 py-2 border focus:ring-gray-500 focus:border-gray-900 w-full sm:text-sm border-gray-300 rounded-md focus:outline-none text-gray-700" placeholder="Enter your blog Id">
                                 </label>
                             </div>
 
                         </div>
                         <div class="pt-4 flex items-center space-x-4">
-                            <button class="bg-blue-500 flex justify-center items-center w-full text-white px-4 py-3 rounded-md focus:outline-none" type="submit">Delete Blog</button>
+                            <button class="bg-blue-500 flex justify-center items-center w-full text-white px-4 py-3 rounded-md focus:outline-none hover:bg-blue-800" type="submit">Delete Blog</button>
                         </div>
                     </div>
                 </form>

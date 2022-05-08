@@ -25,17 +25,18 @@ public class BlogController {
     BlogRepo blogRepo;
 
     @GetMapping("/addNewBlog")
-    public String addBlog(String blogTitle, String author, String blogDescription , String blogImage){
+    public String addBlog(String blogTitle, String author, String blogDescription , String blogImage,String blogContent){
         Blog blog = new Blog();
 
         blog.setBlogTitle(blogTitle);
         blog.setAuthor(author);
         blog.setBlogDescription(blogDescription);
         blog.setBlogImage(blogImage);
+        blog.setBlogContent(blogContent);
 
         blogRepo.save(blog);
 
-        return "blogs";
+        return "redirect:/blogs";
     }
 
 
@@ -62,6 +63,17 @@ public class BlogController {
         },HttpStatus.OK);
     }
 
+    @GetMapping("/readBlog/{blogID}")
+    public ModelAndView getReadBlogs(@PathVariable("blogID") int blogID){
+        Blog blog = blogRepo.findById(blogID).get();
+        return new ModelAndView("/readBlog", new HashMap(){
+            {
+                put("blogR" , blog);
+            }
+
+        },HttpStatus.OK);
+    }
+
 
     @GetMapping("/updateBlog/{blogID}")
     public ModelAndView getExistingBlogs(@PathVariable("blogID") int blogID){
@@ -74,8 +86,9 @@ public class BlogController {
         },HttpStatus.OK);
     }
 
+
     @PostMapping("/updateBlog/newUpdatedBlog/{blogID}")
-    public String getNewUpdatedBlogs(@PathVariable("blogID") int blogID ,String blogTitle, String author, String blogDescription , String blogImage){
+    public String getNewUpdatedBlogs(@PathVariable("blogID") int blogID ,String blogTitle, String author, String blogDescription , String blogImage,String blogContent){
 
         Blog blog2 = blogRepo.findById(blogID).get();
 
@@ -83,13 +96,13 @@ public class BlogController {
         blog2.setAuthor(author);
         blog2.setBlogDescription(blogDescription);
         blog2.setBlogImage(blogImage);
+        blog2.setBlogContent(blogContent);
 
         blogRepo.save(blog2);
 
-        return "redirect:/manageBlogs";
+        return "redirect:/blogs";
 
     }
-
 
 
 
@@ -98,12 +111,11 @@ public class BlogController {
 
         Optional<Blog> blog= blogRepo.findById(blogID);
 
-
         if(blog.isPresent()) {
             blogRepo.delete(blog.get());
         }
 
-        return "blogs";
+        return "redirect:/blogs";
 
     }
 

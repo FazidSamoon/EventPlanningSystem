@@ -68,6 +68,10 @@ public class HomeController {
          return "addBlog";
     }
 
+    @GetMapping("/readBlog")
+    public String getReadBlog(){
+        return "readBlog";
+    }
 
 
 

@@ -41,7 +41,7 @@
 
 
 <section class="py-1 bg-blueGray-50">
-    <div class="w-full xl:w-8/12 mb-12 xl:mb-0 px-4 mx-auto mt-24">
+    <div class="w-full xl:w-11/12 mb-12 xl:mb-0 px-4 mx-auto mt-24">
         <div class="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded ">
 
             <div class="block w-full overflow-x-auto">
@@ -71,35 +71,46 @@
                     <% for(Blog blog : (List<Blog>)
                             request.getAttribute("blogL")) {%>
                     <tr>
-                        <th class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-l whitespace-nowrap p-4 text-left text-blueGray-700 ">
+                        <th class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-l whitespace-normal p-4 text-left text-blueGray-700 ">
                             <%= blog.getBlogID()%>
                         </th>
-                        <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-l whitespace-nowrap p-4 ">
+                        <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-l whitespace-normal p-4 ">
                             <%= blog.getBlogTitle()%>
                         </td>
-                        <td class="border-t-0 px-6 align-center border-l-0 border-r-0 text-l whitespace-nowrap p-4">
+                        <td class="border-t-0 px-6 align-center border-l-0 border-r-0 text-l whitespace-normal p-4">
                             <%=blog.getAuthor()%>
 
                         </td>
-                        <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-l whitespace-nowrap p-4">
+                        <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-l whitespace-normal p-4">
                             <%=blog.getBlogDescription()%>
 
                         </td>
                         <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-l whitespace-nowrap p-4">
-                            <div style="float: left"><button type="button"  class="mr-3 text-sm bg-blue-500 hover:bg-blue-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline" style="width: 100px">Edit</button></div>
-                            <div style="float: right"><button type="button" class="text-sm bg-red-500 hover:bg-red-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline" style="width: 100px">Delete</button><div>
+                            <a href="updateBlog/<%=blog.getBlogID()%>"><div style="margin-bottom: 1px;"><button type="button"  class="mr-3 text-sm bg-blue-500 hover:bg-blue-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline" style="width: 100px">Edit</button></div></a>
+                            <a href="deleteBlog"> <div style="margin-bottom: 2px"><button type="button" class="text-sm bg-red-500 hover:bg-red-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline" style="width: 100px">Delete</button></div></a>
                         </td>
                     </tr>
                     <%}%>
                     </tbody>
 
                 </table>
+
             </div>
         </div>
-    </div>
+    </div>   <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
 
 </section>
 
+<%@ include file="./components/footer.jsp" %>
 
 </body>
 

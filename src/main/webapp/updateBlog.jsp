@@ -12,6 +12,10 @@
      background-repeat: no-repeat;
      background-size: cover;
  }
+
+ textarea{
+     height: 200px;
+ }
      </style>
 </head>
 
@@ -30,7 +34,7 @@
                 <div class="flex items-center space-x-5">
                     <div class="h-14 w-14 bg-yellow-200 rounded-full flex flex-shrink-0 justify-center items-center text-yellow-500 text-2xl font-mono">i</div>
                     <div class="block pl-2 font-bold text-2xl self-start text-black">
-                        <h2 class="leading-relaxed">Update your blog</h2>
+                        <h1 class="leading-relaxed">Update your blog</h1>
                         <p class="text-sm text-black font-normal leading-relaxed">Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
                     </div>
                 </div>
@@ -43,12 +47,12 @@
 
 
                 <div class="divide-y divide-gray-200">
-                    <div class="py-8 text-base leading-6 space-y-4 text-black sm:text-lg sm:leading-7">
+                    <div class="py-8 text-base font-bold leading-6 space-y-4 text-black sm:text-lg sm:leading-7">
 
 
                         <div class="flex flex-col">
                             <label class="leading-loose">Blog Title</label>
-                            <input type="text" name="blogTitle" value="<%=blog.getBlogTitle()%>" class="px-4 py-2 border focus:ring-gray-500 focus:border-gray-900 w-full sm:text-sm border-gray-300 rounded-md focus:outline-none text-gray-600" placeholder="Blog title">
+                            <input type="text" name="blogTitle" value="<%=blog.getBlogTitle()%>" class="px-4 py-2 border focus:ring-gray-500 focus:border-gray-900 w-full sm:text-sm border-gray-300 rounded-md focus:outline-none text-gray-700" placeholder="Blog title">
                         </div>
 
                         <div class="flex flex-col">
@@ -66,9 +70,14 @@
                             <input type="text" name="blogDescription" value="<%=blog.getBlogDescription()%>" class="px-4 py-2 border focus:ring-gray-500 focus:border-gray-900 w-full sm:text-sm border-gray-300 rounded-md focus:outline-none text-gray-600" placeholder="Blog description">
                         </div>
 
+                        <div class="flex flex-col">
+                            <label class="leading-loose">Blog Content</label>
+                            <textarea name="blogContent" value="<%=blog.getBlogContent()%>" class="px-4 py-2 border focus:ring-gray-500 focus:border-gray-900 w-full sm:text-sm border-gray-300 rounded-md focus:outline-none text-gray-600" placeholder="Blog Content"></textarea>
+                        </div>
+
                     </div>
                     <div class="pt-4 flex items-center space-x-4">
-                        <button class="bg-blue-500 flex justify-center items-center w-full text-white px-4 py-3 rounded-md focus:outline-none" type="submit">Update Blog</button>
+                        <button class="bg-blue-500 flex justify-center items-center w-full text-white px-4 py-3 rounded-md focus:outline-none hover:bg-blue-800" type="submit">Update Blog</button>
                     </div>
                 </div>
                 </form>

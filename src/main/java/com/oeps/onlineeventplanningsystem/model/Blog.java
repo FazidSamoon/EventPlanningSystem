@@ -10,8 +10,13 @@ public class Blog {
     private int blogID;
     private String blogTitle;
     private String author;
+    @Column(length = 1000)
     private String blogDescription;
+    @Column(length = 3500)
     private String blogImage;
+
+    @Column(length = 4000)
+    private String blogContent;
 
 
     public Blog() {
@@ -64,5 +69,13 @@ public class Blog {
 
     public void setBlogImage(String blogImage) {
         this.blogImage = blogImage;
+    }
+
+    public String getBlogContent() {
+        return blogContent;
+    }
+
+    public void setBlogContent(String blogContent) {
+        this.blogContent = blogContent;
     }
 }
