@@ -35,7 +35,7 @@ public class HomeController {
         return "events";
     }
 
-    @GetMapping("/viewEvent")
+    @GetMapping("/event")
     public String getEvent() {
         return "/Event/EventView";
     }
