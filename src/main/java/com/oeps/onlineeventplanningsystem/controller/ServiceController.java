@@ -26,7 +26,7 @@ public class ServiceController {
     @Autowired
     private ServicesRepo servicesRepo;
 
-    @GetMapping("/addService")
+    @PostMapping("/addService")
     public String createService(String serviceName, String serviceCreatedBy, String serviceDescription, String serviceCategory , String pictureUrl , String servicePrice) {
 
         Services services = new Services();

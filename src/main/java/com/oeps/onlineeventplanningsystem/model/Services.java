@@ -3,10 +3,7 @@ package com.oeps.onlineeventplanningsystem.model;
 
 import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Services {
@@ -24,6 +21,8 @@ public class Services {
     private String serviceCategory;
 
     private String serviceCreatedBy;
+
+    @Column(length = 2000)
     private String serviceImage;
 
     public Services() {

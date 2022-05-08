@@ -17,7 +17,7 @@
                     
                     <h2 class="text-xxl font-bold text-white">Create Service</h2>
                 </div>
-                <form action="addService" method="get">
+                <form action="addService" method="post">
                     <div class="flex flex-row">
                         <input
                             class="w-1/2 p-4 text-sm bg-gray-50 focus:outline-none border border-gray-200 rounded text-gray-600 mb-2 mr-1"
