@@ -1,250 +1,270 @@
+<%@ page import="com.oeps.onlineeventplanningsystem.model.Blog" %>
+<%@ page import="java.util.List" %>
+
 <!DOCTYPE html>
 <html>
-<head>
     <title></title>
-    <link rel="stylesheet" href="https://cdn.tailgrids.com/tailgrids-fallback.css" />
     <script src="https://cdn.tailwindcss.com"></script>
+
+<style>
+    body {
+        background-image: url("https://images.unsplash.com/photo-1619863182792-ff9b20a5f886?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8Ymx1ZSUyMGJhY2tncm91bmRzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60");
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    #style1{
+        padding-left: 50px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        border-radius: 10px;
+    }
+
+    #style2{
+        padding: 5px;
+        display: inline-block;
+        float: right;
+    }
+
+    #style3{
+        float: right;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+    #style4{
+        float: right;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+    #style5{
+        margin: 0px;
+    }
+    * {box-sizing: border-box;}
+    .mySlides {display: none;}
+    img {vertical-align: middle;}
+
+    /* Slideshow container */
+    .slideshow-container {
+        max-width: 1000px;
+        position: relative;
+        margin: auto;
+    }
+
+    /* Caption text */
+    .text {
+        color: #f2f2f2;
+        font-size: 15px;
+        padding: 8px 12px;
+        position: absolute;
+        bottom: 8px;
+        width: 100%;
+        text-align: center;
+    }
+
+    /* Number text (1/3 etc) */
+    .numbertext {
+        color: #f2f2f2;
+        font-size: 12px;
+        padding: 8px 12px;
+        position: absolute;
+        top: 0;
+    }
+
+    /* The dots/bullets/indicators */
+    .dot {
+        height: 15px;
+        width: 15px;
+        margin: 0 2px;
+        background-color: #bbb;
+        border-radius: 50%;
+        display: inline-block;
+        transition: background-color 0.6s ease;
+    }
+
+    .active {
+        background-color: #717171;
+    }
+
+    /* Fading animation */
+    .fade {
+        animation-name: fade;
+        animation-duration: 1.5s;
+    }
+
+    @keyframes fade {
+        from {opacity: .4}
+        to {opacity: 1}
+    }
+
+    /* On smaller screens, decrease text size */
+    @media only screen and (max-width: 300px) {
+        .text {font-size: 11px}
+    }
+
+
+
+</style>
+
+
 </head>
 
 <body>
 
-<%--    header--%>
-<%@ include file="./components/header.jsp" %>
-
-<div class="overflow-x-hidden bg-[#4a76a8]">
-
-
-    <div class="px-6 py-8">
-        <div class="container flex justify-between mx-auto">
-            <div class="w-full lg:w-8/12">
-                <div class="flex items-center justify-between">
-                    <h1 class="text-xl font-bold text-gray-700 md:text-2xl">Post</h1>
-                    <div>
-                        <select class="w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
-                            <option>Latest</option>
-                            <option>Last Week</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="mt-6">
-                    <div class="max-w-4xl px-10 py-6 mx-auto bg-white rounded-lg shadow-md">
-                        <div class="flex items-center justify-between"><span class="font-light text-gray-600">Jun 1,
-                                2020</span><a href="#"
-                                              class="px-2 py-1 font-bold text-gray-100 bg-gray-600 rounded hover:bg-gray-500">Laravel</a>
-                        </div>
-                        <div class="mt-2"><a href="#" class="text-2xl font-bold text-gray-700 hover:underline">Build
-                            Your New Idea with Laravel Freamwork.</a>
-                            <p class="mt-2 text-gray-600">Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                                Tempora expedita dicta totam aspernatur doloremque. Excepturi iste iusto eos enim
-                                reprehenderit nisi, accusamus delectus nihil quis facere in modi ratione libero!</p>
-                        </div>
-                        <div class="flex items-center justify-between mt-4"><a href="#"
-                                                                               class="text-blue-500 hover:underline">Read more</a>
-                            <div><a href="#" class="flex items-center"><img
-                                    src="https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=731&amp;q=80"
-                                    alt="avatar" class="hidden object-cover w-10 h-10 mx-4 rounded-full sm:block">
-                                <h1 class="font-bold text-gray-700 hover:underline">Alex John</h1>
-                            </a></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="mt-6">
-                    <div class="max-w-4xl px-10 py-6 mx-auto bg-white rounded-lg shadow-md">
-                        <div class="flex items-center justify-between"><span class="font-light text-gray-600">mar 4,
-                                2019</span><a href="#"
-                                              class="px-2 py-1 font-bold text-gray-100 bg-gray-600 rounded hover:bg-gray-500">Design</a>
-                        </div>
-                        <div class="mt-2"><a href="#"
-                                             class="text-2xl font-bold text-gray-700 hover:underline">Accessibility tools for
-                            designers and developers</a>
-                            <p class="mt-2 text-gray-600">Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                                Tempora expedita dicta totam aspernatur doloremque. Excepturi iste iusto eos enim
-                                reprehenderit nisi, accusamus delectus nihil quis facere in modi ratione libero!</p>
-                        </div>
-                        <div class="flex items-center justify-between mt-4"><a href="#"
-                                                                               class="text-blue-500 hover:underline">Read more</a>
-                            <div><a href="#" class="flex items-center"><img
-                                    src="https://images.unsplash.com/photo-1464863979621-258859e62245?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=333&amp;q=80"
-                                    alt="avatar" class="hidden object-cover w-10 h-10 mx-4 rounded-full sm:block">
-                                <h1 class="font-bold text-gray-700 hover:underline">Jane Doe</h1>
-                            </a></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="mt-6">
-                    <div class="max-w-4xl px-10 py-6 mx-auto bg-white rounded-lg shadow-md">
-                        <div class="flex items-center justify-between"><span class="font-light text-gray-600">Feb 14,
-                                2019</span><a href="#"
-                                              class="px-2 py-1 font-bold text-gray-100 bg-gray-600 rounded hover:bg-gray-500">PHP</a>
-                        </div>
-                        <div class="mt-2"><a href="#" class="text-2xl font-bold text-gray-700 hover:underline">PHP:
-                            Array to Map</a>
-                            <p class="mt-2 text-gray-600">Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                                Tempora expedita dicta totam aspernatur doloremque. Excepturi iste iusto eos enim
-                                reprehenderit nisi, accusamus delectus nihil quis facere in modi ratione libero!</p>
-                        </div>
-                        <div class="flex items-center justify-between mt-4"><a href="#"
-                                                                               class="text-blue-500 hover:underline">Read more</a>
-                            <div><a href="#" class="flex items-center"><img
-                                    src="https://images.unsplash.com/photo-1531251445707-1f000e1e87d0?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=281&amp;q=80"
-                                    alt="avatar" class="hidden object-cover w-10 h-10 mx-4 rounded-full sm:block">
-                                <h1 class="font-bold text-gray-700 hover:underline">Lisa Way</h1>
-                            </a></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="mt-6">
-                    <div class="max-w-4xl px-10 py-6 mx-auto bg-white rounded-lg shadow-md">
-                        <div class="flex items-center justify-between"><span class="font-light text-gray-600">Dec 23,
-                                2018</span><a href="#"
-                                              class="px-2 py-1 font-bold text-gray-100 bg-gray-600 rounded hover:bg-gray-500">Django</a>
-                        </div>
-                        <div class="mt-2"><a href="#" class="text-2xl font-bold text-gray-700 hover:underline">Django
-                            Dashboard - Learn by Coding</a>
-                            <p class="mt-2 text-gray-600">Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                                Tempora expedita dicta totam aspernatur doloremque. Excepturi iste iusto eos enim
-                                reprehenderit nisi, accusamus delectus nihil quis facere in modi ratione libero!</p>
-                        </div>
-                        <div class="flex items-center justify-between mt-4"><a href="#"
-                                                                               class="text-blue-500 hover:underline">Read more</a>
-                            <div><a href="#" class="flex items-center"><img
-                                    src="https://images.unsplash.com/photo-1500757810556-5d600d9b737d?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=735&amp;q=80"
-                                    alt="avatar" class="hidden object-cover w-10 h-10 mx-4 rounded-full sm:block">
-                                <h1 class="font-bold text-gray-700 hover:underline">Steve Matt</h1>
-                            </a></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="mt-6">
-                    <div class="max-w-4xl px-10 py-6 mx-auto bg-white rounded-lg shadow-md">
-                        <div class="flex items-center justify-between"><span class="font-light text-gray-600">Mar 10,
-                                2018</span><a href="#"
-                                              class="px-2 py-1 font-bold text-gray-100 bg-gray-600 rounded hover:bg-gray-500">Testing</a>
-                        </div>
-                        <div class="mt-2"><a href="#" class="text-2xl font-bold text-gray-700 hover:underline">TDD
-                            Frist</a>
-                            <p class="mt-2 text-gray-600">Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                                Tempora expedita dicta totam aspernatur doloremque. Excepturi iste iusto eos enim
-                                reprehenderit nisi, accusamus delectus nihil quis facere in modi ratione libero!</p>
-                        </div>
-                        <div class="flex items-center justify-between mt-4"><a href="#"
-                                                                               class="text-blue-500 hover:underline">Read more</a>
-                            <div><a href="#" class="flex items-center"><img
-                                    src="https://images.unsplash.com/photo-1502980426475-b83966705988?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=373&amp;q=80"
-                                    alt="avatar" class="hidden object-cover w-10 h-10 mx-4 rounded-full sm:block">
-                                <h1 class="font-bold text-gray-700 hover:underline">Khatab Wedaa</h1>
-                            </a></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="mt-8">
-                    <div class="flex">
-                        <a href="#" class="px-3 py-2 mx-1 font-medium text-gray-500 bg-white rounded-md cursor-not-allowed">
-                            previous
-                        </a>
-
-                        <a href="#" class="px-3 py-2 mx-1 font-medium text-gray-700 bg-white rounded-md hover:bg-blue-500 hover:text-white">
-                            1
-                        </a>
-
-                        <a href="#" class="px-3 py-2 mx-1 font-medium text-gray-700 bg-white rounded-md hover:bg-blue-500 hover:text-white">
-                            2
-                        </a>
-
-                        <a href="#" class="px-3 py-2 mx-1 font-medium text-gray-700 bg-white rounded-md hover:bg-blue-500 hover:text-white">
-                            3
-                        </a>
-
-                        <a href="#" class="px-3 py-2 mx-1 font-medium text-gray-700 bg-white rounded-md hover:bg-blue-500 hover:text-white">
-                            Next
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="hidden w-4/12 -mx-8 lg:block">
-                <div class="px-8">
-                    <h1 class="mb-4 text-xl font-bold text-gray-700">Authors</h1>
-                    <div class="flex flex-col max-w-sm px-6 py-4 mx-auto bg-white rounded-lg shadow-md">
-                        <ul class="-mx-4">
-                            <li class="flex items-center"><img
-                                    src="https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=731&amp;q=80"
-                                    alt="avatar" class="object-cover w-10 h-10 mx-4 rounded-full">
-                                <p><a href="#" class="mx-1 font-bold text-gray-700 hover:underline">Alex John</a><span
-                                        class="text-sm font-light text-gray-700">Created 23 Posts</span></p>
-                            </li>
-                            <li class="flex items-center mt-6"><img
-                                    src="https://images.unsplash.com/photo-1464863979621-258859e62245?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=333&amp;q=80"
-                                    alt="avatar" class="object-cover w-10 h-10 mx-4 rounded-full">
-                                <p><a href="#" class="mx-1 font-bold text-gray-700 hover:underline">Jane Doe</a><span
-                                        class="text-sm font-light text-gray-700">Created 52 Posts</span></p>
-                            </li>
-                            <li class="flex items-center mt-6"><img
-                                    src="https://images.unsplash.com/photo-1531251445707-1f000e1e87d0?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=281&amp;q=80"
-                                    alt="avatar" class="object-cover w-10 h-10 mx-4 rounded-full">
-                                <p><a href="#" class="mx-1 font-bold text-gray-700 hover:underline">Lisa Way</a><span
-                                        class="text-sm font-light text-gray-700">Created 73 Posts</span></p>
-                            </li>
-                            <li class="flex items-center mt-6"><img
-                                    src="https://images.unsplash.com/photo-1500757810556-5d600d9b737d?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=735&amp;q=80"
-                                    alt="avatar" class="object-cover w-10 h-10 mx-4 rounded-full">
-                                <p><a href="#" class="mx-1 font-bold text-gray-700 hover:underline">Steve Matt</a><span
-                                        class="text-sm font-light text-gray-700">Created 245 Posts</span></p>
-                            </li>
-                            <li class="flex items-center mt-6"><img
-                                    src="https://images.unsplash.com/photo-1502980426475-b83966705988?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=373&amp;q=80"
-                                    alt="avatar" class="object-cover w-10 h-10 mx-4 rounded-full">
-                                <p><a href="#" class="mx-1 font-bold text-gray-700 hover:underline">Khatab
-                                    Wedaa</a><span class="text-sm font-light text-gray-700">Created 332 Posts</span>
-                                </p>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="px-8 mt-10">
-                    <h1 class="mb-4 text-xl font-bold text-gray-700">Categories</h1>
-                    <div class="flex flex-col max-w-sm px-4 py-6 mx-auto bg-white rounded-lg shadow-md">
-                        <ul>
-                            <li><a href="#" class="mx-1 font-bold text-gray-700 hover:text-gray-600 hover:underline">-
-                                AWS</a></li>
-                            <li class="mt-2"><a href="#"
-                                                class="mx-1 font-bold text-gray-700 hover:text-gray-600 hover:underline">-
-                                Laravel</a></li>
-                            <li class="mt-2"><a href="#"
-                                                class="mx-1 font-bold text-gray-700 hover:text-gray-600 hover:underline">- Vue</a>
-                            </li>
-                            <li class="mt-2"><a href="#"
-                                                class="mx-1 font-bold text-gray-700 hover:text-gray-600 hover:underline">-
-                                Design</a></li>
-                            <li class="flex items-center mt-2"><a href="#"
-                                                                  class="mx-1 font-bold text-gray-700 hover:text-gray-600 hover:underline">-
-                                Django</a></li>
-                            <li class="flex items-center mt-2"><a href="#"
-                                                                  class="mx-1 font-bold text-gray-700 hover:text-gray-600 hover:underline">- PHP</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="px-8 mt-10">
-                    <h1 class="mb-4 text-xl font-bold text-gray-700">Recent Post</h1>
-                    <div class="flex flex-col max-w-sm px-8 py-6 mx-auto bg-white rounded-lg shadow-md">
-                        <div class="flex items-center justify-center"><a href="#"
-                                                                         class="px-2 py-1 text-sm text-green-100 bg-gray-600 rounded hover:bg-gray-500">Laravel</a>
-                        </div>
-                        <div class="mt-4"><a href="#" class="text-lg font-medium text-gray-700 hover:underline">Build
-                            Your New Idea with Laravel Freamwork.</a></div>
-                        <div class="flex items-center justify-between mt-4">
-                            <div class="flex items-center"><img
-                                    src="https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=731&amp;q=80"
-                                    alt="avatar" class="object-cover w-8 h-8 rounded-full"><a href="#"
-                                                                                              class="mx-3 text-sm text-gray-700 hover:underline">Alex John</a></div><span
-                                class="text-sm font-light text-gray-600">Jun 1, 2020</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div class="bg-red">
+            <%--    header--%>
+            <%@ include file="./components/header.jsp" %>
         </div>
-    </div>
-</div>
+        <br>
+        <br>
+
+      <div class="w-full  p-12">
+
+          <div class="w-full px-4">
+              <div class="text-center mx-auto mb-12 lg:mb-20 max-w-[510px]">
+
+                  <h2
+                          class="
+                  font-bold
+                  text-3xl
+                  sm:text-4xl
+                  md:text-[40px]
+                  text-gray-900
+                  mb-4
+                  "
+                  >
+                      Our Latest Blogs
+                  </h2>
+                  <p class="text-base text-body-color">
+                      There are many variations of passages of Lorem Ipsum available
+                      but the majority have suffered alteration in some form.
+                  </p>
+              </div>
+          </div>
+
+
+
+
+
+
+          <div class="slideshow-container">
+
+              <div class="mySlides fade">
+                  <div class="numbertext">1 / 3</div>
+                  <img src="https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" style="width:100% ; height:400px">
+                  <div class="text">Caption Text</div>
+              </div>
+
+              <div class="mySlides fade">
+                  <div class="numbertext">2 / 3</div>
+                  <img src="https://images.unsplash.com/photo-1530103862676-de8c9debad1d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" style="width:100%  ; height:400px">
+                  <div class="text">Caption Two</div>
+              </div>
+
+              <div class="mySlides fade">
+                  <div class="numbertext">3 / 3</div>
+                  <img src="https://images.unsplash.com/photo-1527529482837-4698179dc6ce?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" style="width:100%  ; height:400px">
+                  <div class="text">Caption Three</div>
+              </div>
+
+          </div>
+          <br>
+
+          <div style="text-align:center">
+              <span class="dot"></span>
+              <span class="dot"></span>
+              <span class="dot"></span>
+          </div>
+
+          <script>
+              let slideIndex = 0;
+              showSlides();
+
+              function showSlides() {
+                  let i;
+                  let slides = document.getElementsByClassName("mySlides");
+                  let dots = document.getElementsByClassName("dot");
+                  for (i = 0; i < slides.length; i++) {
+                      slides[i].style.display = "none";
+                  }
+                  slideIndex++;
+                  if (slideIndex > slides.length) {slideIndex = 1}
+                  for (i = 0; i < dots.length; i++) {
+                      dots[i].className = dots[i].className.replace(" active", "");
+                  }
+                  slides[slideIndex-1].style.display = "block";
+                  dots[slideIndex-1].className += " active";
+                  setTimeout(showSlides, 3000); // Change image every 2 seconds
+              }
+          </script>
+
+
+
+
+          <div id="style2">
+
+              <a href = "addBlog">
+                  <button id="style3" class="flex-shrink-0 px-4 py-2 text-base font-semibold text-white bg-blue-700 rounded-lg shadow-md hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:ring-offset-purple-200" type="submit">
+                      Post your Blog
+                  </button>
+              </a>
+              <a href = "manageBlogs">
+                  <button id="style4" class="flex-shrink-0 px-4 py-2 text-base font-semibold text-white bg-blue-700 rounded-lg shadow-md hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:ring-offset-purple-200" type="submit">
+                      Manage all Blogs
+                  </button>
+              </a>
+
+          </div>
+        </div>
+
+
+
+
+
+        <!-- component -->
+        <div class="w-full my-12">
+
+
+            <% for(Blog blogn : (List<Blog>)
+                    request.getAttribute("blogM")) {%>
+
+            <div class="max-w-5xl mx-auto px-6 sm:px-6 lg:px-8">
+                <div class="bg-white w-full shadow rounded p-8">
+
+                    <div class="grid grid-cols-1 gap-8 mt-6">
+                        <div class="flex flex-col md:flex-row">
+                            <div class="w-full md:w-6/12 rounded overflow-hidden">
+                                <img class="object w-full h-auto" src="<%=blogn.getBlogImage()%>" alt="">
+                            </div>
+                            <div class="w-full md:w-6/12 mt-4 md:mt-0 md:ml-4">
+                                <h1 class="text-xl font-bold leading-tight text-gray-800"><%= blogn.getBlogTitle()%></h1>
+                                <h2 class="leading-normal font-semibold pt-2">Author: <%=blogn.getAuthor()%></h2>
+                                <p class="leading-normal pt-2"><%=blogn.getBlogDescription()%></p>
+                                <a class="leading-normal pt-2 hover:underline text-blue-600" href="readBlog/<%=blogn.getBlogID()%>">Read more...</a>
+                                <br>
+                                <br>
+
+                                <div style="float: left">
+                                    <a href="updateBlog/<%=blogn.getBlogID()%>">
+                                        <button class="p-1 pl-5 pr-5 bg-red-400 text-gray-100 text-s rounded-lg focus:border-4 border-red-500 hover:bg-red-700">Edit</button>
+                                    </a>
+                                    <a href="deleteBlog">
+                                        <button class="p-1 pl-5 pr-5 bg-green-400 text-gray-100 text-s rounded-lg focus:border-4 border-green-600 hover:bg-green-700">Delete</button>
+                                    </a>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <%}%>
+        </div>
+        </div>
+
+
 
 
 

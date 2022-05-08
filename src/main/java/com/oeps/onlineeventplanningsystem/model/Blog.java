@@ -10,18 +10,25 @@ public class Blog {
     private int blogID;
     private String blogTitle;
     private String author;
+    @Column(length = 1000)
     private String blogDescription;
+    @Column(length = 3500)
+    private String blogImage;
+
+    @Column(length = 4000)
+    private String blogContent;
 
 
     public Blog() {
 
     }
 
-    public Blog(int blogID, String blogTitle, String author, String blogDescription) {
+    public Blog(int blogID, String blogTitle, String author, String blogDescription, String blogImage) {
         this.blogID = blogID;
         this.blogTitle = blogTitle;
         this.author = author;
         this.blogDescription = blogDescription;
+        this.blogImage = blogImage;
     }
 
     public int getBlogID() {
@@ -54,5 +61,21 @@ public class Blog {
 
     public void setBlogDescription(String blogDescription) {
         this.blogDescription = blogDescription;
+    }
+
+    public String getBlogImage() {
+        return blogImage;
+    }
+
+    public void setBlogImage(String blogImage) {
+        this.blogImage = blogImage;
+    }
+
+    public String getBlogContent() {
+        return blogContent;
+    }
+
+    public void setBlogContent(String blogContent) {
+        this.blogContent = blogContent;
     }
 }

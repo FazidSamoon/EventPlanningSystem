@@ -4,6 +4,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import javax.servlet.http.HttpServletRequest;
+
 
 @Controller
 public class HomeController {
@@ -50,9 +52,26 @@ public class HomeController {
          return "services";
     }
 
-    @GetMapping("/blogs")
-    public String getBlogs(){
-         return "blogs";
+
+
+    @GetMapping("/updateBlog")
+    public String getUpdateBlog(){
+        return "updateBlog";
+    }
+
+    @GetMapping("/deleteBlog")
+    public String getDeleteBlog(){
+        return "deleteBlog";
+    }
+
+    @GetMapping("/addBlog")
+    public String getAddBlocks(){
+         return "addBlog";
+    }
+
+    @GetMapping("/readBlog")
+    public String getReadBlog(){
+        return "readBlog";
     }
 
     @GetMapping("/editUserInfo")
@@ -81,6 +100,7 @@ public class HomeController {
     public String getServiceControlAdmin(){
          return "servicesControlAdmin";
     }
+
 
 
 }
