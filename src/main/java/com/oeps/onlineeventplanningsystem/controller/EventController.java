@@ -42,11 +42,22 @@ public class EventController {
         return "index";
     }
     @GetMapping ("/viewEvent")
-    public ModelAndView viewEvent() {
-        List<Event> eventlist = eventRepo.findAll();
+    public ModelAndView viewEvent(HttpSession session) {
+        String username1 = ((User) session.getAttribute("userSession")).getName();
+        List<Event> myEventList = eventRepo.findByusername(username1);
         return  new ModelAndView("/Event/EventView", new HashMap() {
             {
-                put("eventlist", eventlist);
+                put("eventM", myEventList);
+            }
+        },HttpStatus.OK);
+    }
+
+    @GetMapping ("/EditEvent")
+    public ModelAndView editEvent(int eventIdpass) {
+        Optional<Event> eventEdit = eventRepo.findByEventId(eventIdpass);
+        return  new ModelAndView("/Event/EventView", new HashMap() {
+            {
+                put("eventM", eventEdit);
             }
         },HttpStatus.OK);
     }

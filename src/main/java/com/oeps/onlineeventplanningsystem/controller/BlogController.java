@@ -49,7 +49,6 @@ public class BlogController {
 
         Optional<Blog> blog= blogRepo.findById(blogID);
 
-
         if(blog.isPresent()) {
             blogRepo.delete(blog.get());
         }

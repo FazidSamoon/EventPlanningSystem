@@ -17,44 +17,23 @@
 
 
 <br><div class="container">
-<!-- component -->
-<%--<table class="min-w-full border-collapse block md:table">--%>
-<%--    <thead class="block md:table-header-group">--%>
-<%--    <tr class="border border-grey-500 md:border-none block md:table-row absolute -top-full md:top-auto -left-full md:left-auto  md:relative ">--%>
-<%--        <th class="bg-gray-600 p-2 text-white font-bold md:border md:border-grey-500 text-left block md:table-cell">Event Name</th>--%>
-<%--        <th class="bg-gray-600 p-2 text-white font-bold md:border md:border-grey-500 text-left block md:table-cell">Date</th>--%>
-<%--        <th class="bg-gray-600 p-2 text-white font-bold md:border md:border-grey-500 text-left block md:table-cell">Location</th>--%>
-<%--        <th class="bg-gray-600 p-2 text-white font-bold md:border md:border-grey-500 text-left block md:table-cell">Actions</th>--%>
-<%--    </tr>--%>
-<%--    </thead>--%>
-<%--    <tbody class="block md:table-row-group">--%>
-<%--    <tr class="bg-gray-300 border border-grey-500 md:border-none block md:table-row">--%>
-<%--        <td class="p-2 md:border md:border-grey-500 text-left block md:table-cell"><span class="inline-block w-1/3 md:hidden font-bold">Event Name</span>${Event.getEventname}</td>--%>
-<%--        <td class="p-2 md:border md:border-grey-500 text-left block md:table-cell"><span class="inline-block w-1/3 md:hidden font-bold">Date</span>${Even}</td>--%>
-<%--        <td class="p-2 md:border md:border-grey-500 text-left block md:table-cell"><span class="inline-block w-1/3 md:hidden font-bold">Location</span>${}</td>--%>
-
-<%--        <td class="p-2 md:border md:border-grey-500 text-left block md:table-cell">--%>
-<%--            <span class="inline-block w-1/3 md:hidden font-bold">Actions</span>--%>
-<%--            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 border border-blue-500 rounded">Edit</button>--%>
-<%--            <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-2 border border-red-500 rounded">Delete</button>--%>
-<%--        </td>--%>
-<%--    </tr>--%>
-
-<%--    </tbody>--%>
-<%--</table>--%>
-<%--</div>--%>
 
 <table class="min-w-full border-collapse block md:table">
-<% List<Event> eventList = (List<Event>) request.getAttribute("eventList");
-    for(Event event : eventList){ %>
+<%-- //List<Event> eventList = (List<Event>) request.getAttribute("eventList");--%>
+        <% for(Event eventN : (List<Event>)
+        request.getAttribute("eventM")){ %>
     <tr>
-        <td class="p-2 md:border md:border-grey-500 text-left block md:table-cell"><span class="inline-block w-1/3 md:hidden font-bold">Event Name</span>${event.getEventname}</td>
-        <td class="p-2 md:border md:border-grey-500 text-left block md:table-cell"><span class="inline-block w-1/3 md:hidden font-bold">Date</span>${event.getDate()}</td>
-        <td class="p-2 md:border md:border-grey-500 text-left block md:table-cell"><span class="inline-block w-1/3 md:hidden font-bold">Location</span>${event.getLocation()}</td>
+        <td class="p-2 md:border md:border-grey-500 text-left block md:table-cell"> <%= eventN.getEventName() %></td>
+        <td class="p-2 md:border md:border-grey-500 text-left block md:table-cell"><%=eventN.getEventDate() %></td>
+        <td class="p-2 md:border md:border-grey-500 text-left block md:table-cell"><%=eventN.getEventLocation() %></td>
 
         <td>
+            <a href="/EditEvent/<%= eventN.getEventId() %> ">
             <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 border border-blue-500 rounded">Edit</button>
+            </a>
+            <a href="">
             <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-2 border border-red-500 rounded">Delete</button>
+            </a>
         </td>
     </tr>
 <% } %>
