@@ -58,7 +58,7 @@ public class ServiceController {
 
     @GetMapping("/editService/{id}")
     public ModelAndView loadUpdateForm(@PathVariable("id") Long id) {
-        System.out.println("la la");
+        
         Services service = servicesRepo.findById(id).get();
 
         return new ModelAndView("/editService", new HashMap() {
