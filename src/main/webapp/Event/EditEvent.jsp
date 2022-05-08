@@ -1,3 +1,4 @@
+<%@ page import="com.oeps.onlineeventplanningsystem.model.Event" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,18 +25,19 @@
     <%@ include file="../components/header.jsp" %>
 </div>
 <br>
-
+    <% //Event eventRec = (Event)request.getAttribute("eventM"); %>
 
 <div class="container-fluid py-4 my-4  rounded bg-blue-900 text-white w-50">
     <div class="row justify-content-md-center">
         <div class="col-md-8 ">
 
             <form action="saveEvent" method="post" >
-                <p class="h2 text-center" > Create an event </p>
+                <p class="h2 text-center" > Update event </p>
 
                 <div class="form-group">
                     <label for="eventName">Event </label>
-                    <input type="Text" class="form-control"  name="eventName" id="eventName" value="" >
+                    <%--    header value=" 5 <%= eventRec.getEventName() %>   --%>
+                    <input type="Text" class="form-control"  name="eventName" id="eventName"  >
                 </div>
                 <div class="form-group">
                     <label for="eventDescription">Event Description</label>

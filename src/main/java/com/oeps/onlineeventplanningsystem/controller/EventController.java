@@ -65,13 +65,14 @@ public class EventController {
     }
 
     @GetMapping ("/EditEvent")
-    public ModelAndView editEvent(int eventIdpass) {
+    public ModelAndView editEvent(Integer eventIdpass) {
         Optional<Event> eventEdit = eventRepo.findByEventId(eventIdpass);
-        return  new ModelAndView("/Event/EventView", new HashMap() {
+        return  new ModelAndView("/Event/EditEvent", new HashMap() {
             {
                 put("eventM", eventEdit);
             }
         },HttpStatus.OK);
+
     }
 
 
