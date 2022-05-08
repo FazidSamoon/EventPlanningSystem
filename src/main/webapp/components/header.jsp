@@ -39,7 +39,15 @@
           <div class="flex flex-col mt-2 md:flex-row md:mt-0 md:mx-1">
             <a class="my-1 text-sm text-white leading-5 hover:text-gray-400 hover:underline md:mx-4 md:my-0" href="/">Home</a>
             <a class="my-1 text-sm text-white leading-5 hover:text-gray-400 hover:underline md:mx-4 md:my-0" href="/blogs">Blog</a>
+
+            <%
+              if (session.getAttribute("userSession") != null) {
+            %>
             <a class="my-1 text-sm text-white leading-5 hover:text-gray-400 hover:underline md:mx-4 md:my-0" href="/viewEvent">Events</a>
+
+            <%
+              }
+            %>
             <a class="my-1 text-sm text-white leading-5 hover:text-gray-400 hover:underline md:mx-4 md:my-0" href="/services">Services</a>
           </div>
   

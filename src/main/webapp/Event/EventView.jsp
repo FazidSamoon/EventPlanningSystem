@@ -16,7 +16,8 @@
 <%@ include file="../components/header.jsp" %>
 
 
-<br><div class="container">
+<br>
+<div class="container h-100">
 
 <table class="min-w-full border-collapse block md:table">
 <%-- //List<Event> eventList = (List<Event>) request.getAttribute("eventList");--%>
@@ -38,6 +39,7 @@
     </tr>
 <% } %>
 </table>
+</div>
 
     <%@ include file="../components/footer.jsp" %>
 </body>

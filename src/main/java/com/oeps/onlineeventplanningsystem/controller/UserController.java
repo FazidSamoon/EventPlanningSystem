@@ -165,7 +165,7 @@ public class UserController {
 
         userRepo.save(user1);
 
-    	return "redirect:/user";
+    	return "/index";
 
     }
 

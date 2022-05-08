@@ -3,6 +3,8 @@ package com.oeps.onlineeventplanningsystem.controller;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+
+import com.oeps.onlineeventplanningsystem.error.UserNotFoundException;
 import com.oeps.onlineeventplanningsystem.model.Event;
 import com.oeps.onlineeventplanningsystem.model.User;
 import com.oeps.onlineeventplanningsystem.repositories.EventRepo;
@@ -42,14 +44,24 @@ public class EventController {
         return "index";
     }
     @GetMapping ("/viewEvent")
-    public ModelAndView viewEvent(HttpSession session) {
+    public ModelAndView viewEvent(HttpSession session) throws UserNotFoundException {
+
+        if (session.getAttribute("userSession") == null) {
+            throw new UserNotFoundException("Please login first");
+        }
         String username1 = ((User) session.getAttribute("userSession")).getName();
         List<Event> myEventList = eventRepo.findByusername(username1);
-        return  new ModelAndView("/Event/EventView", new HashMap() {
-            {
-                put("eventM", myEventList);
-            }
-        },HttpStatus.OK);
+
+        if (myEventList.isEmpty()) {
+            throw new UserNotFoundException("No events found");
+        }
+
+            return new ModelAndView("/Event/EventView", new HashMap() {
+                {
+                    put("eventM", myEventList);
+                }
+            }, HttpStatus.OK);
+
     }
 
     @GetMapping ("/EditEvent")
