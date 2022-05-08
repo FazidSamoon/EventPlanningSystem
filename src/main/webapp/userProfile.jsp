@@ -27,9 +27,7 @@
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
     
 </head>
-
 <body>
-
 <div class="bg-gray-100">
     <div class="relative mt-0 pt-0">
         <%@ include file="./components/header.jsp" %>

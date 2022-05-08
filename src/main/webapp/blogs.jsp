@@ -1,5 +1,6 @@
 <%@ page import="com.oeps.onlineeventplanningsystem.model.Blog" %>
 <%@ page import="java.util.List" %>
+<%@ page import="com.oeps.onlineeventplanningsystem.model.User" %>
 
 <!DOCTYPE html>
 <html>
@@ -207,11 +208,24 @@
                       Post your Blog
                   </button>
               </a>
-              <a href = "manageBlogs">
-                  <button id="style4" class="flex-shrink-0 px-4 py-2 text-base font-semibold text-white bg-blue-700 rounded-lg shadow-md hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:ring-offset-purple-200" type="submit">
-                      Manage all Blogs
-                  </button>
-              </a>
+              <%
+                  if (session.getAttribute("userSession") != null) {
+              %>
+
+                  <%
+                      if (((User)session.getAttribute("userSession")).getRole().equals("ADMIN")) {
+                  %>
+                      <a href = "manageBlogs">
+                          <button id="style4" class="flex-shrink-0 px-4 py-2 text-base font-semibold text-white bg-blue-700 rounded-lg shadow-md hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:ring-offset-purple-200" type="submit">
+                              Manage all Blogs
+                          </button>
+                      </a>
+                  <%
+                      }
+                  %>
+              <%
+                  }
+              %>
 
           </div>
         </div>
@@ -243,14 +257,27 @@
                                 <br>
                                 <br>
 
+                                <%
+                                    if (session.getAttribute("userSession") != null) {
+                                %>
+
+                                        <%
+                                            if(blogn.getUserName().equals(((User)session.getAttribute("userSession")).getUsername())){
+                                        %>
+                                <%
+                                    }
+                                %>
+
                                 <div style="float: left">
                                     <a href="updateBlog/<%=blogn.getBlogID()%>">
                                         <button class="p-1 pl-5 pr-5 bg-red-400 text-gray-100 text-s rounded-lg focus:border-4 border-red-500 hover:bg-red-700">Edit</button>
                                     </a>
-                                    <a href="deleteBlog">
+                                    <a href="deleteBlog/<%=blogn.getBlogID()%>">
                                         <button class="p-1 pl-5 pr-5 bg-green-400 text-gray-100 text-s rounded-lg focus:border-4 border-green-600 hover:bg-green-700">Delete</button>
                                     </a>
                                 </div>
+
+                                <%}%>
 
                             </div>
 

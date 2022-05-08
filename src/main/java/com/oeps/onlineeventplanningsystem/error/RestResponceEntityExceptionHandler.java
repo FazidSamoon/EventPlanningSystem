@@ -28,4 +28,11 @@ public class RestResponceEntityExceptionHandler extends ResponseEntityExceptionH
 
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(message);
     }
+
+    @ExceptionHandler(BlogsExceptions.class)
+    public ResponseEntity <ErrorMessage> blogNotFoundException(BlogsExceptions exception , WebRequest request) {
+        ErrorMessage message = new ErrorMessage(HttpStatus.NOT_FOUND,exception.getMessage());
+
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(message);
+    }
 }

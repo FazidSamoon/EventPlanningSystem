@@ -18,17 +18,21 @@ public class Blog {
     @Column(length = 4000)
     private String blogContent;
 
+    private String userName;
+
 
     public Blog() {
 
     }
 
-    public Blog(int blogID, String blogTitle, String author, String blogDescription, String blogImage) {
+    public Blog(int blogID, String blogTitle, String author, String blogDescription, String blogImage, String blogContent, String userName) {
         this.blogID = blogID;
         this.blogTitle = blogTitle;
         this.author = author;
         this.blogDescription = blogDescription;
         this.blogImage = blogImage;
+        this.blogContent = blogContent;
+        this.userName = userName;
     }
 
     public int getBlogID() {
@@ -77,5 +81,13 @@ public class Blog {
 
     public void setBlogContent(String blogContent) {
         this.blogContent = blogContent;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 }

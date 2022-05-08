@@ -1,3 +1,4 @@
+<%@ page import="com.oeps.onlineeventplanningsystem.model.Blog" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -36,8 +37,11 @@
                 </div>
 
 
+                <%
+                    Blog blog = (Blog) request.getAttribute("blogID");
+                %>
 
-                <form action = "deleteExistingBlog" method="GET">
+                <form action = "deleteExistingBlog" method="post">
 
 
                     <div class="divide-y divide-gray-200">
@@ -46,7 +50,7 @@
                             <div class="flex flex-col">
                                 <label class="leading-loose">Blog ID</label>
                                 <label>
-                                    <input type="number" name="blogID" class="px-4 py-2 border focus:ring-gray-500 focus:border-gray-900 w-full sm:text-sm border-gray-300 rounded-md focus:outline-none text-gray-700" placeholder="Enter your blog Id">
+                                    <input type="number" name="blogID" class="px-4 py-2 border focus:ring-gray-500 focus:border-gray-900 w-full sm:text-sm border-gray-300 rounded-md focus:outline-none text-gray-700" placeholder="Enter your blog Id " value="<%=blog.getBlogID()%>">
                                 </label>
                             </div>
 

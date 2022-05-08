@@ -59,10 +59,10 @@ public class HomeController {
         return "updateBlog";
     }
 
-    @GetMapping("/deleteBlog")
-    public String getDeleteBlog(){
-        return "deleteBlog";
-    }
+//    @GetMapping("/deleteBlog/{id}")
+//    public String getDeleteBlog(){
+//        return "deleteBlog";
+//    }
 
     @GetMapping("/addBlog")
     public String getAddBlocks(){
