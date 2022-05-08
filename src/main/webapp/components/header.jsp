@@ -16,7 +16,7 @@
   
   <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
   
-  <header x-data="{ isOpen: false }" class="absolute w-full bg-red shadow bg-blue-900">
+  <header x-data="{ isOpen: false }" class="relative mb-0 w-full bg-red shadow bg-blue-900">
     <nav class="container mx-auto px-6 py-3 ">
       <div class="flex flex-col md:flex-row md:justify-between md:items-center">
         <div class="flex justify-between items-center">
@@ -37,10 +37,10 @@
         <!-- Mobile Menu open: "block", Menu closed: "hidden" -->
         <div class="md:flex items-center" :class="isOpen ? 'block' : 'hidden'">
           <div class="flex flex-col mt-2 md:flex-row md:mt-0 md:mx-1">
-            <a class="my-1 text-sm text-white leading-5 hover:text-gray-400 hover:underline md:mx-4 md:my-0" href="#">Home</a>
-            <a class="my-1 text-sm text-white leading-5 hover:text-gray-400 hover:underline md:mx-4 md:my-0" href="#">Blog</a>
-            <a class="my-1 text-sm text-white leading-5 hover:text-gray-400 hover:underline md:mx-4 md:my-0" href="#">Compoents</a>
-            <a class="my-1 text-sm text-white leading-5 hover:text-gray-400 hover:underline md:mx-4 md:my-0" href="#">Courses</a>
+            <a class="my-1 text-sm text-white leading-5 hover:text-gray-400 hover:underline md:mx-4 md:my-0" href="/">Home</a>
+            <a class="my-1 text-sm text-white leading-5 hover:text-gray-400 hover:underline md:mx-4 md:my-0" href="/blogs">Blog</a>
+            <a class="my-1 text-sm text-white leading-5 hover:text-gray-400 hover:underline md:mx-4 md:my-0" href="/viewEvent">Events</a>
+            <a class="my-1 text-sm text-white leading-5 hover:text-gray-400 hover:underline md:mx-4 md:my-0" href="/services">Services</a>
           </div>
   
           
@@ -63,9 +63,12 @@
             %>
             <a class="block w-1/2 px-3 py-2 mx-1 rounded text-center text-sm bg-blue-500 font-medium text-white leading-5 hover:bg-blue-600 md:mx-0 md:w-auto" href="/logout">Logout</a>
 
-            <img class=" px-5 py-5 z-50 " src="https://www.iconfinder.com/search?q=user&price=free" alt="">
+            
+            <a href="/users/${userSession.getUserID()}">
+              <img class="h-[35px] w-[35px] cursor-pointer ml-4 " src="./images/userAvatar.png" alt="" >
+            </a>
 
-            <img class="h-[35px] w-[35px] bg-blue-200 ml-[10px]" src=".images/userP.png" alt="" href="/users">
+            
 
             <%
               }

@@ -1,16 +1,22 @@
 package com.oeps.onlineeventplanningsystem.controller;
-
+import com.oeps.onlineeventplanningsystem.error.UserNotFoundException;
+import com.oeps.onlineeventplanningsystem.error.UsernamePasswordMissmatchException;
 import com.oeps.onlineeventplanningsystem.model.Role;
 import com.oeps.onlineeventplanningsystem.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
 import com.oeps.onlineeventplanningsystem.repositories.UserRepo;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.net.http.HttpClient;
+import java.util.HashMap;
+import java.util.InputMismatchException;
+import java.util.Objects;
 import java.util.Optional;
 
 @Controller
@@ -20,11 +26,13 @@ public class UserController {
     UserRepo userRepo;
 
     // Session object to manage all session states
-    HttpSession session;
+
 
     // User Login function
     @PostMapping("/login")
-    public String loginUser(String userName, String password, HttpSession session) {
+    public String loginUser(String userName, String password , HttpSession session) throws UserNotFoundException {
+
+
 
         // Check if user exists
         Optional<User> user = userRepo.findByUsernameAndPassword(userName, password);
@@ -33,9 +41,10 @@ public class UserController {
         if (user.isPresent()) {
             session.setAttribute("userSession", user.get());
 
-            return "index";
+
+            return "redirect:/";
         } else {
-            return "login";
+            throw new UserNotFoundException("Invalid User Details");
         }
     }
 
@@ -43,54 +52,135 @@ public class UserController {
     @GetMapping("/logout")
     public String logoutUser(HttpSession session, HttpServletRequest request) {
 
-        // Remove session variables
-        // session.invalidate();
-        // return "index";
-
         session = request.getSession(false);
         if (session != null) {
             session.invalidate();
+
         }
-        return "index";
+        return "redirect:/";
     }
 
     // Signup a user function
     @PostMapping("/signup")
     public String registerUser(String userName, String password, String email, String name, String phoneNumber,
-            String address, HttpSession session) {
+            String address, HttpSession session) throws UserNotFoundException {
 
         // instantiate a new user
         User user = new User();
 
+        Optional existingUser = userRepo.findByUsername(userName);
+
         // set values to user
 
-        user.setUsername(userName);
-        user.setPassword(password);
-        user.setEmail(email);
-        user.setName(name);
+        if (existingUser.isPresent()){
+            throw new UserNotFoundException("userName already in use");
+        }else{
+            try {
 
-        user.setPhone(phoneNumber);
-        user.setAddress(address);
-        user.setRole(Role.USER);
+                user.setUsername(userName);
+                user.setPassword(password);
+                user.setEmail(email);
+                user.setName(name);
 
-        // save user to database
+                user.setPhone(phoneNumber);
+                user.setAddress(address);
+                user.setRole(Role.USER);
 
-        userRepo.save(user);
+                // save user to database
 
-        // create a session
-        session.setAttribute("userSession", user);
+                userRepo.save(user);
 
-        return "index";
-    }
-
-    public String deleteUser(String userName, String password) {
-        Optional<User> user = userRepo.findByUsernameAndPassword(userName, password);
-
-        if (user.isPresent()) {
-            userRepo.delete(user.get());
+                // create a session
+                session.setAttribute("userSession", user);
+            }catch (Exception e) {
+                throw new UserNotFoundException("Cant register user at this time");
+            }
         }
 
-        return "index";
+
+
+
+        return "redirect:/";
     }
+
+    @PostMapping("/deleteAccount/{id}")
+    public String deleteUser(@PathVariable("id") int id , String userName, String password , HttpSession session ,HttpServletRequest request) throws UsernamePasswordMissmatchException, UserNotFoundException {
+        Optional<User> user = userRepo.findById(id);
+
+
+        try {
+            if(password.equals(user.get().getPassword()) && user.isPresent() ) {
+                userRepo.delete(user.get());
+
+                session = request.getSession(false);
+                if (session != null) {
+                    session.invalidate();
+
+                }
+
+            }
+            return "redirect:/";
+        } catch (Exception e) {
+            throw new UsernamePasswordMissmatchException("Username or password is incorrect" );
+        }
+
+
+
+
+
+    }
+
+
+    @PostMapping("/editUserInfo/{id}")
+    public String editUser(@PathVariable("id") int id , String username, String eMail , String phone ,String name,String address , String password , Model model){
+
+        User user1 = userRepo.findById(id).get();
+
+        if(Objects.nonNull(username) &&
+                !"".equalsIgnoreCase(username)) {
+            user1.setUsername(username);
+        }
+
+        if(Objects.nonNull(name) &&
+                !"".equalsIgnoreCase(name)) {
+            user1.setName(name);
+        }
+
+        if(Objects.nonNull(eMail)) {
+            user1.setEmail(eMail);
+        }
+
+        if(Objects.nonNull(password)) {
+            user1.setPassword(password);
+        }
+
+        if(Objects.nonNull(phone)) {
+            user1.setPhone(phone);
+        }
+
+        if(Objects.nonNull(address) &&
+                !"".equalsIgnoreCase(address)) {
+            user1.setAddress(address);
+        }
+
+        userRepo.save(user1);
+
+    	return "redirect:/user";
+
+    }
+
+    @GetMapping("/users/{id}")
+    public ModelAndView renderUserInfo(@PathVariable("id") int id){
+        User user = userRepo.findById(id).get();
+
+        return new ModelAndView("/userProfile",new HashMap<>() {
+            {
+                put("userInfo", user);
+            }
+        }, HttpStatus.OK);
+    }
+
+
+
 
 }

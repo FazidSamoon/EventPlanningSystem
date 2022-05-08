@@ -2,6 +2,7 @@ package com.oeps.onlineeventplanningsystem.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -26,19 +27,19 @@ public class HomeController {
         return "login";
     }
 
-    @GetMapping("/users")
-    public String getUsers() {
-        return "./account/users";
-    }
+//    @GetMapping("/users")
+//    public String getUsers() {
+//        return "userProfile";
+//    }
 
     @GetMapping("/events")
     public String getEvents() {
         return "events";
     }
 
-    @GetMapping("/event")
+    @GetMapping("/viewEvent")
     public String getEvent() {
-        return "event";
+        return "/Event/EventView";
     }
 
     @GetMapping("/dashboard")
@@ -71,6 +72,33 @@ public class HomeController {
     @GetMapping("/readBlog")
     public String getReadBlog(){
         return "readBlog";
+    }
+
+    @GetMapping("/editUserInfo")
+    public String getEditUserInfo(){
+         return "editUserInfo";
+    }
+
+
+
+    @GetMapping("/deleteAccount")
+    public String getDeleteAccount(){
+         return "deleteAccount";
+    }
+
+    @GetMapping("/createService")
+    public String getCreateService(){
+         return "createService";
+    }
+
+    @GetMapping("/editService")
+    public String getEditService(){
+         return "editService";
+    }
+
+    @PostMapping("/servicesControlAdmin")
+    public String getServiceControlAdmin(){
+         return "servicesControlAdmin";
     }
 
 

@@ -11,12 +11,11 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int userID;
-
+    @Column(unique = true)
     private String username;
     private String password;
     private String email;
     private String name;
-
     private String phone;
     private String address;
     @Enumerated(EnumType.STRING)
@@ -27,7 +26,7 @@ public class User {
     }
 
     public User(int userID, String username, String password, String email, String name, String phone, String address,
-            Role role) {
+                Role role) {
         this.userID = userID;
         this.username = username;
         this.password = password;
