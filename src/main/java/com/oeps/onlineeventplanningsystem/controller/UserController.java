@@ -5,6 +5,7 @@ import com.oeps.onlineeventplanningsystem.model.Role;
 import com.oeps.onlineeventplanningsystem.model.User;
 import com.oeps.onlineeventplanningsystem.service.ServicesService;
 import org.hibernate.Session;
+import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
@@ -28,6 +29,8 @@ public class UserController {
     @Autowired
     UserRepo userRepo;
 
+    Logger logger = org.slf4j.LoggerFactory.getLogger(UserController.class);
+
     // Session object to manage all session states
 
 
@@ -35,32 +38,39 @@ public class UserController {
     @PostMapping("/login")
     public String loginUser(String userName, String password , HttpSession session) throws UserNotFoundException {
 
-
-
         // Check if user exists
         Optional<User> user = userRepo.findByUsernameAndPassword(userName, password);
 
         // If user exists, set session variables
-        if (user.isPresent()) {
-            session.setAttribute("userSession", user.get());
 
+            if (user.isPresent()) {
+                session.setAttribute("userSession", user.get());
+                session.setAttribute("userRole", user.get().getRole());
 
-            return "redirect:/";
-        } else {
-            throw new UserNotFoundException("Invalid User Details");
-        }
+                logger.info("User logged in " + user.get().getUsername());
+                return "redirect:/";
+            } else {
+                logger.error("User not found");
+                throw new UserNotFoundException("Invalid User Details");
+            }
+
     }
 
     // User Logout function
     @GetMapping("/logout")
     public String logoutUser(HttpSession session, HttpServletRequest request) {
 
-        session = request.getSession(false);
-        if (session != null) {
-            session.invalidate();
-
+        try{
+            session = request.getSession(false);
+            if (session != null) {
+                session.invalidate();
+                logger.info("User logged out");
+            }
+            return "redirect:/";
+        }catch (Exception e){
+            return "redirect:/error505";
         }
-        return "redirect:/";
+
     }
 
     // Signup a user function
@@ -95,13 +105,12 @@ public class UserController {
 
                 // create a session
                 session.setAttribute("userSession", user);
+                session.setAttribute("userRole", user.getRole());
             }catch (Exception e) {
+                logger.error("cant register user " + e.getMessage());
                 throw new UserNotFoundException("Cant register user at this time");
             }
         }
-
-
-
 
         return "redirect:/";
     }
@@ -124,12 +133,9 @@ public class UserController {
             }
             return "redirect:/";
         } catch (Exception e) {
+            logger.error("cant delete user " + e.getMessage());
             throw new UsernamePasswordMissmatchException("Username or password is incorrect" );
         }
-
-
-
-
 
     }
 
@@ -139,42 +145,48 @@ public class UserController {
 
         User user1 = userRepo.findById(id).get();
 
-        if(Objects.nonNull(username) &&
-                !"".equalsIgnoreCase(username)) {
-            user1.setUsername(username);
+        try {
+            if(Objects.nonNull(username) &&
+                    !"".equalsIgnoreCase(username)) {
+                user1.setUsername(username);
+            }
+
+            if(Objects.nonNull(name) &&
+                    !"".equalsIgnoreCase(name)) {
+                user1.setName(name);
+            }
+
+            if(Objects.nonNull(eMail)) {
+                user1.setEmail(eMail);
+            }
+
+            if(Objects.nonNull(password)) {
+                user1.setPassword(password);
+            }
+
+            if(Objects.nonNull(phone)) {
+                user1.setPhone(phone);
+            }
+
+            if(Objects.nonNull(address) &&
+                    !"".equalsIgnoreCase(address)) {
+                user1.setAddress(address);
+            }
+
+            userRepo.save(user1);
+
+            session = request.getSession(false);
+            if (session != null) {
+                session.invalidate();
+
+            }
+
+            return "redirect:/login";
+        }catch (Exception e) {
+            logger.error("cant edit user " + e.getMessage());
+            return "redirect:/error505";
         }
 
-        if(Objects.nonNull(name) &&
-                !"".equalsIgnoreCase(name)) {
-            user1.setName(name);
-        }
-
-        if(Objects.nonNull(eMail)) {
-            user1.setEmail(eMail);
-        }
-
-        if(Objects.nonNull(password)) {
-            user1.setPassword(password);
-        }
-
-        if(Objects.nonNull(phone)) {
-            user1.setPhone(phone);
-        }
-
-        if(Objects.nonNull(address) &&
-                !"".equalsIgnoreCase(address)) {
-            user1.setAddress(address);
-        }
-
-        userRepo.save(user1);
-
-        session = request.getSession(false);
-        if (session != null) {
-            session.invalidate();
-
-        }
-
-    	return "redirect:/login";
 
     }
 
@@ -182,14 +194,17 @@ public class UserController {
     public ModelAndView renderUserInfo(@PathVariable("id") int id){
         User user = userRepo.findById(id).get();
 
-        return new ModelAndView("/userProfile",new HashMap<>() {
-            {
-                put("userInfo", user);
-            }
-        }, HttpStatus.OK);
+        try {
+            return new ModelAndView("/userProfile",new HashMap<>() {
+                {
+                    put("userInfo", user);
+                }
+            }, HttpStatus.OK);
+        }catch (Exception e) {
+            logger.error("cant render user " + e.getMessage());
+            return new ModelAndView("/error505");
+        }
+
     }
-
-
-
 
 }

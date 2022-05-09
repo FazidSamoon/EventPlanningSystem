@@ -44,43 +44,37 @@
             </div>
         </div>
 
-        <%
-            for (Services service : (List<Services>)
-                    request.getAttribute("servicesList")) {
-        %>
+            <div class="w-full my-12">
+                <%
+                    for (Services service : (List<Services>)
+                            request.getAttribute("servicesList")) {
+                %>
+                <div class="max-w-5xl mx-auto px-6 sm:px-6 lg:px-8 mt-4">
+                    <div class="bg-white w-full shadow rounded p-8">
 
-        <div class="flex items-center justify-center">
+                        <div class="grid grid-cols-1 gap-8 mt-6">
+                            <div class="flex flex-col md:flex-row">
+                                <div class="w-full md:w-6/12 rounded overflow-hidden">
+                                    <img class="object w-full h-auto" src="<%=service.getServiceImage()%>" alt="">
+                                </div>
+                                <div class="w-full md:w-6/12 mt-4 md:mt-0 md:ml-4">
+                                    <h2 class="text-lg font-semibold leading-tight text-gray-800"><%=service.getServiceName()%></h2>
+                                    <h4 class=" font-semibold leading-tight text-gray-800"><%=service.getServiceCreatedBy()%></h4>
+                                    <h5 class=" font-semibold leading-tight text-gray-800"><%=service.getServiceCategory()%></h5>
+                                    <p class="leading-normal pt-2"><%=service.getServiceDescription()%></p>
 
-        
-        <!-- component -->
-        <div class="max-w-md w-full lg:flex  ">
-            <div class="h-48 lg:h-auto lg:w-48 flex-none bg-cover rounded-t lg:rounded-t-none lg:rounded-l text-center overflow-hidden" style="background-image: url('<%=service.getServiceImage()%>')" title="Woman holding a mug">
-            </div>
-            <div class="border-r border-b border-l border-grey-light lg:border-l-0 lg:border-t lg:border-grey-light bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal">
-                <div class="mb-8">
-
-                    <div class="text-black font-bold text-xl mb-2"><%=service.getServiceName()%></div>
-                    <p class="text-grey-darker text-base"><%=service.getServiceDescription()%></p>
-                </div>
-                <div class="flex items-center">
-
-                    <div class="text-sm">
-                        <p class="text-black leading-none"><%=service.getServiceCreatedBy()%></p>
-                        <p class="text-grey-dark">Aug 18</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
+                <%
+                    }
+                %>
             </div>
         </div>
-
-        <%
-            }
-        %>
-    </div>
     </div>
 </section>
-<!-- ====== Services Section End -->
-
-
 
 <%@ include file="./components/footer.jsp" %>
 

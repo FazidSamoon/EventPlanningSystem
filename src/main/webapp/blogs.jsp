@@ -212,9 +212,9 @@
                   if (session.getAttribute("userSession") != null) {
               %>
 
-                  <%
-                      if (((User)session.getAttribute("userSession")).getRole().equals("ADMIN")) {
-                  %>
+              <%
+                  if (((User)session.getAttribute("userSession")).getRole().toString().equals("ADMIN")) {
+              %>
                       <a href = "manageBlogs">
                           <button id="style4" class="flex-shrink-0 px-4 py-2 text-base font-semibold text-white bg-blue-700 rounded-lg shadow-md hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:ring-offset-purple-200" type="submit">
                               Manage all Blogs

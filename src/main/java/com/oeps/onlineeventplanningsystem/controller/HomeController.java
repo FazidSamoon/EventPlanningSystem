@@ -27,11 +27,6 @@ public class HomeController {
         return "login";
     }
 
-//    @GetMapping("/users")
-//    public String getUsers() {
-//        return "userProfile";
-//    }
-
     @GetMapping("/events")
     public String getEvents() {
         return "events";
@@ -47,19 +42,10 @@ public class HomeController {
         return "./account/admin";
     }
 
-
-
-
-
     @GetMapping("/updateBlog")
     public String getUpdateBlog(){
         return "updateBlog";
     }
-
-//    @GetMapping("/deleteBlog/{id}")
-//    public String getDeleteBlog(){
-//        return "deleteBlog";
-//    }
 
     @GetMapping("/addBlog")
     public String getAddBlocks(){
@@ -75,8 +61,6 @@ public class HomeController {
     public String getEditUserInfo(){
          return "editUserInfo";
     }
-
-
 
     @GetMapping("/deleteAccount")
     public String getDeleteAccount(){
@@ -97,7 +81,5 @@ public class HomeController {
     public String getServiceControlAdmin(){
          return "servicesControlAdmin";
     }
-
-
 
 }

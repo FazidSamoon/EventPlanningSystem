@@ -13,15 +13,12 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.servlet.ModelAndView;
-
 import java.util.HashMap;
 import java.util.List;
 import java.util.Optional;
 
 @Controller
 public class ServiceController {
-
-
 
     @Autowired
     private ServicesRepo servicesRepo;
@@ -31,41 +28,52 @@ public class ServiceController {
 
         Services services = new Services();
 
-        services.setServiceCreatedBy(serviceCreatedBy);
-        services.setServiceCategory(serviceCategory);
-        services.setServiceImage(pictureUrl);
-        services.setServiceName(serviceName);
-        services.setServicePrice(servicePrice);
-        services.setServiceDescription(serviceDescription);
+        try {
+            services.setServiceCreatedBy(serviceCreatedBy);
+            services.setServiceCategory(serviceCategory);
+            services.setServiceImage(pictureUrl);
+            services.setServiceName(serviceName);
+            services.setServicePrice(servicePrice);
+            services.setServiceDescription(serviceDescription);
 
-        servicesRepo.save(services);
+            servicesRepo.save(services);
 
-        System.out.println(services);
-        return "index";
+            return "index";
+        }catch (Exception e){
+            return "error505";
+        }
+
     }
 
     @GetMapping("/servicesControlAdmin")
     public ModelAndView getAllServices() {
 
+        try {
         List<Services> servicesList = servicesRepo.findAll();
         return new ModelAndView("servicesControlAdmin", new HashMap() {
             {
                 put("dataList", servicesList);
             }
         }, HttpStatus.OK);
-
+        }catch (Exception e){
+            return new ModelAndView("error505");
+        }
     }
 
     @GetMapping("/editService/{id}")
     public ModelAndView loadUpdateForm(@PathVariable("id") Long id) {
-        
-        Services service = servicesRepo.findById(id).get();
 
-        return new ModelAndView("/editService", new HashMap() {
-            {
-                put("currentService", service);
-            }
-        }, HttpStatus.OK);
+        try {
+            Services service = servicesRepo.findById(id).get();
+
+            return new ModelAndView("/editService", new HashMap() {
+                {
+                    put("currentService", service);
+                }
+            }, HttpStatus.OK);
+        }catch (Exception e){
+            return new ModelAndView("error505");
+        }
 
     }
 
@@ -94,7 +102,7 @@ public class ServiceController {
             updateService.setServiceDescription(serviceDescription);
             servicesRepo.save(updateService);
         }catch (Exception e) {
-            e.printStackTrace();
+            return "error505";
         }
 
         return "redirect:/servicesControlAdmin";
@@ -107,7 +115,5 @@ public class ServiceController {
         servicesRepo.delete(service);
         return "redirect:/servicesControlAdmin";
     }
-
-
 
 }
