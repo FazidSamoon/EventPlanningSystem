@@ -1,6 +1,7 @@
 
 <%@ page import="com.oeps.onlineeventplanningsystem.model.Event" %>
 <%@ page import="java.util.List" %>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,6 +25,15 @@
 <%--        if (session.getAttribute("userSession") != null) {--%>
 <%--    %>--%>
 <table class="min-w-full border-collapse block md:table">
+    <thead class="thead-dark">
+    <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Date</th>
+        <th scope="col">Location</th>
+        <th scope="col">Action</th>
+    </tr>
+    </thead>
+    <tbody>
 
 
         <% for(Event eventN : (List<Event>)
@@ -42,7 +52,9 @@
             </a>
         </td>
     </tr>
+
 <% } %>
+    </tbody>
 </table>
 <%--    <%--%>
 <%--        }--%>
