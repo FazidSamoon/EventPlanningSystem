@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
@@ -64,12 +65,12 @@ public class EventController {
 
     }
 
-    @GetMapping ("/EditEvent")
-    public ModelAndView editEvent(Integer eventIdpass) {
+    @GetMapping ("/EditEvent/{id}")
+    public ModelAndView editEvent(@PathVariable("id") int eventIdpass) {
         Optional<Event> eventEdit = eventRepo.findByEventId(eventIdpass);
         return  new ModelAndView("/Event/EditEvent", new HashMap() {
             {
-                put("eventM", eventEdit);
+                put("eventE", eventEdit);
             }
         },HttpStatus.OK);
 

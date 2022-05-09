@@ -19,8 +19,13 @@
 <br>
 <div class="container h-100">
 
+
+<%--    <%--%>
+<%--        if (session.getAttribute("userSession") != null) {--%>
+<%--    %>--%>
 <table class="min-w-full border-collapse block md:table">
-<%-- //List<Event> eventList = (List<Event>) request.getAttribute("eventList");--%>
+
+
         <% for(Event eventN : (List<Event>)
         request.getAttribute("eventM")){ %>
     <tr>
@@ -39,7 +44,11 @@
     </tr>
 <% } %>
 </table>
+<%--    <%--%>
+<%--        }--%>
+<%--    %>--%>
 </div>
 
     <%@ include file="../components/footer.jsp" %>
 </body>
+</html>

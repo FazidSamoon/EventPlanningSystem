@@ -3,6 +3,7 @@ import com.oeps.onlineeventplanningsystem.error.UserNotFoundException;
 import com.oeps.onlineeventplanningsystem.error.UsernamePasswordMissmatchException;
 import com.oeps.onlineeventplanningsystem.model.Role;
 import com.oeps.onlineeventplanningsystem.model.User;
+import com.oeps.onlineeventplanningsystem.service.ServicesService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;

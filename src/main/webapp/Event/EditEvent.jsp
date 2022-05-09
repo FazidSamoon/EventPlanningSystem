@@ -25,7 +25,7 @@
     <%@ include file="../components/header.jsp" %>
 </div>
 <br>
-    <% //Event eventRec = (Event)request.getAttribute("eventM"); %>
+    <% Event eventRec = (Event) request.getAttribute("eventE"); %>
 
 <div class="container-fluid py-4 my-4  rounded bg-blue-900 text-white w-50">
     <div class="row justify-content-md-center">
@@ -37,19 +37,19 @@
                 <div class="form-group">
                     <label for="eventName">Event </label>
                     <%--    header value=" 5 <%= eventRec.getEventName() %>   --%>
-                    <input type="Text" class="form-control"  name="eventName" id="eventName"  >
+                    <input type="Text" class="form-control" value="<%=eventRec.getEventName()%>"  name="eventName" id="eventName"  >
                 </div>
                 <div class="form-group">
                     <label for="eventDescription">Event Description</label>
-                    <textarea class="form-control" id="eventDescription" name="eventDescription" rows="3"></textarea>
+                    <textarea class="form-control" id="eventDescription" value="<%=eventRec.getEventDescription()%>" name="eventDescription" rows="3"></textarea>
                 </div>
                 <div class="form-group">
                     <label for="eventDate">Date</label>
-                    <input type="date" class="form-control" id="eventDate" name="eventDate" placeholder="Enter Date">
+                    <input type="date" class="form-control" id="eventDate" value="<%=eventRec.getEventDate()%>" name="eventDate" placeholder="Enter Date">
                 </div>
                 <div class="form-group">
                     <label for="eventLocation">Location</label>
-                    <input type="Text" class="form-control" id="eventLocation" name="eventLocation" placeholder="select location">
+                    <input type="Text" class="form-control" id="eventLocation" value="<%=eventRec.getEventLocation()%>" name="eventLocation" placeholder="select location">
                 </div>
                 <button type="submit" class="btn btn-success text-white bg-green-600" >Submit</button>
 
