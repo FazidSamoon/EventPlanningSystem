@@ -21,7 +21,8 @@
       <div class="flex flex-col md:flex-row md:justify-between md:items-center">
         <div class="flex justify-between items-center">
           <div class="flex items-center">
-            <a class="text-white text-xl font-bold md:text-2xl hover:text-gray-400" href="#">Brand</a>
+<%--            <a class="text-white text-xl font-bold md:text-2xl hover:text-gray-400" href="#">Brand</a>--%>
+  <img class="h-[50px] w-[120px] cursor-pointer ml-4 object-contain" src="./images/Logo.png" alt="" >
           </div>
   
           <!-- Mobile menu button -->
