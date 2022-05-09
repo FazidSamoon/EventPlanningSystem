@@ -51,6 +51,8 @@
                   class="w-full border border-gray-300 rounded-sm px-4 py-3 outline-none transition-colors duration-150 ease-in-out focus:border-blue-400"
                   placeholder="Your userName"
                   value=""
+                  required
+                  minlength="3"
                 />
               </div>
             </div>
@@ -64,6 +66,10 @@
                   class="w-full border border-gray-300 rounded-sm px-4 py-3 outline-none transition-colors duration-150 ease-in-out focus:border-blue-400"
                   placeholder="Your password"
                   value=""
+                  required
+                  minlength="8"
+                  maxlength="20"
+
                 />
               </div>
             </div>

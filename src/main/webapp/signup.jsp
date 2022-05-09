@@ -40,16 +40,21 @@
                             </label>
                             <input
                                 class="block w-full px-4 py-3 mb-3 leading-tight text-white bg-transparent border border-gray-200 rounded appearance-none focus:outline-none "
-                                name="userName" id="grid-first-name" type="text" placeholder="Jane">
+                                name="userName" id="grid-first-name" type="text" placeholder="Jane"
+                                required
+                                minlength="3">
                         </div>
                         <div class="w-full px-3 md:w-1/2">
                             <label class="block mb-2 text-xs font-bold tracking-wide text-white uppercase"
-                                for="grid-last-name">
+                                for="grid-last-name"
+                            >
                                 Name
                             </label>
                             <input
                                 class="block w-full px-4 py-3 leading-tight  text-white bg-transparent border border-gray-200 rounded appearance-none focus:outline-none  focus:border-gray-500"
-                                id="grid-last-name" name="name" type="text" placeholder="Doe">
+                                id="grid-last-name" name="name" type="text" placeholder="Doe"
+                                required
+                                minlength="3">
                         </div>
                     </div>
                     <div class="flex flex-wrap -mx-3">
@@ -60,7 +65,8 @@
                             </label>
                             <input
                                 class="block w-full px-4 py-3 mb-3 leading-tight text-white bg-transparent border border-gray-200 rounded appearance-none focus:outline-none  focus:border-gray-500"
-                                id="grid-email" name="email" type="email" placeholder="janedoe@example.com">
+                                id="grid-email" name="email" type="email" placeholder="janedoe@example.com"
+                                required>
                         </div>
                         <div class="w-full px-3 mb-6">
                             <label class="block mb-2 text-xs font-bold tracking-wide text-white uppercase"
@@ -69,7 +75,10 @@
                             </label>
                             <input
                                 class="block w-full px-4 py-3 mb-3 leading-tight text-white bg-transparent border border-gray-200 rounded appearance-none focus:outline-none  focus:border-gray-500"
-                                id="grid-password" name="password" type="password" placeholder="***********">
+                                id="grid-password" name="password" type="password" placeholder="***********"
+                                required
+                                minlength="8"
+                                maxlength="20">
                         </div>
                         <div class="w-full px-3 mb-6">
                             <label class="block mb-2 text-xs font-bold tracking-wide text-white uppercase"

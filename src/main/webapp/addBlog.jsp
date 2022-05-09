@@ -43,11 +43,14 @@
                     <div class="py-8 text-base leading-6 space-y-4 text-black sm:text-lg sm:leading-7 font-bold">
                         <div class="flex flex-col">
                             <label class="leading-loose">Blog Title</label>
-                            <input type="text" name="blogTitle"  class="px-4 py-2 border focus:ring-gray-500 focus:border-gray-900 w-full sm:text-sm border-gray-300 rounded-md focus:outline-none text-gray-600" placeholder="Blog Title">
+                            <input type="text" name="blogTitle"  class="px-4 py-2 border focus:ring-gray-500 focus:border-gray-900 w-full sm:text-sm border-gray-300 rounded-md focus:outline-none text-gray-600" placeholder="Blog Title"
+                            required
+                            minlength="4">
                         </div>
                         <div class="flex flex-col">
                             <label class="leading-loose">Author</label>
-                            <input type="text" name="author" class="px-4 py-2 border focus:ring-gray-500 focus:border-gray-900 w-full sm:text-sm border-gray-300 rounded-md focus:outline-none text-gray-600" placeholder="Author">
+                            <input type="text" name="author" class="px-4 py-2 border focus:ring-gray-500 focus:border-gray-900 w-full sm:text-sm border-gray-300 rounded-md focus:outline-none text-gray-600" placeholder="Author"
+                            required>
                         </div>
                         <div class="flex flex-col">
                             <label class="leading-loose">Blog Image</label>
@@ -56,12 +59,13 @@
 
                         <div class="flex flex-col">
                             <label class="leading-loose">Blog Description</label>
-                            <input type="text" name="blogDescription"  class="px-4 py-2 border focus:ring-gray-500 focus:border-gray-900 w-full sm:text-sm border-gray-300 rounded-md focus:outline-none text-gray-600" placeholder="Description">
+                            <input type="text" name="blogDescription"  class="px-4 py-2 border focus:ring-gray-500 focus:border-gray-900 w-full sm:text-sm border-gray-300 rounded-md focus:outline-none text-gray-600" placeholder="Description"
+                            required>
                         </div>
 
                         <div class="flex flex-col">
                             <label class="leading-loose">Blog Content</label>
-                            <textarea name="blogContent"  class="px-4 py-2 border focus:ring-gray-500 focus:border-gray-900 w-full sm:text-sm border-gray-300 rounded-md focus:outline-none text-gray-600" placeholder="Blog Content"></textarea>
+                            <textarea name="blogContent"  class="px-4 py-2 border focus:ring-gray-500 focus:border-gray-900 w-full sm:text-sm border-gray-300 rounded-md focus:outline-none text-gray-600" placeholder="Blog Content" required</textarea>
                         </div>
                     </div>
                     <div class="pt-4 flex items-center space-x-4">
