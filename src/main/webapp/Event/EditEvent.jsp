@@ -25,23 +25,23 @@
     <%@ include file="../components/header.jsp" %>
 </div>
 <br>
-    <% Event eventRec = (Event) request.getAttribute("eventE"); %>
+
 
 <div class="container-fluid py-4 my-4  rounded bg-blue-900 text-white w-50">
     <div class="row justify-content-md-center">
         <div class="col-md-8 ">
-
-            <form action="saveEvent" method="post" >
+            <% Event eventRec = (Event) request.getAttribute("eventE"); %>
+            <form action="saveEvent/<%=eventRec.getEventId()%>" method="post" >
                 <p class="h2 text-center" > Update event </p>
 
                 <div class="form-group">
                     <label for="eventName">Event </label>
-                    <%--    header value=" 5 <%= eventRec.getEventName() %>   --%>
+
                     <input type="Text" class="form-control" value="<%=eventRec.getEventName()%>"  name="eventName" id="eventName"  >
                 </div>
                 <div class="form-group">
                     <label for="eventDescription">Event Description</label>
-                    <textarea class="form-control" id="eventDescription" value="<%=eventRec.getEventDescription()%>" name="eventDescription" rows="3"></textarea>
+                    <textarea class="form-control" id="eventDescription"  name="eventDescription" rows="3"><%=eventRec.getEventDescription()%></textarea>
                 </div>
                 <div class="form-group">
                     <label for="eventDate">Date</label>

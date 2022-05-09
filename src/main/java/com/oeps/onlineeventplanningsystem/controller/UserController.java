@@ -4,6 +4,7 @@ import com.oeps.onlineeventplanningsystem.error.UsernamePasswordMissmatchExcepti
 import com.oeps.onlineeventplanningsystem.model.Role;
 import com.oeps.onlineeventplanningsystem.model.User;
 import com.oeps.onlineeventplanningsystem.service.ServicesService;
+import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
@@ -15,6 +16,7 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
 import java.util.HashMap;
 import java.util.InputMismatchException;
 import java.util.Objects;
@@ -133,7 +135,7 @@ public class UserController {
 
 
     @PostMapping("/editUserInfo/{id}")
-    public String editUser(@PathVariable("id") int id , String username, String eMail , String phone ,String name,String address , String password , Model model){
+    public String editUser(@PathVariable("id") int id , String username, String eMail , String phone , String name, String address , String password , Model model , HttpSession session, HttpServletRequest request){
 
         User user1 = userRepo.findById(id).get();
 
@@ -166,7 +168,13 @@ public class UserController {
 
         userRepo.save(user1);
 
-    	return "/index";
+        session = request.getSession(false);
+        if (session != null) {
+            session.invalidate();
+
+        }
+
+    	return "redirect:/login";
 
     }
 

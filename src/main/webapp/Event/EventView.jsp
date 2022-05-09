@@ -37,7 +37,7 @@
             <a href="/EditEvent/<%= eventN.getEventId() %> ">
             <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 border border-blue-500 rounded">Edit</button>
             </a>
-            <a href="">
+            <a href="/DeleteEvent/<%= eventN.getEventId() %> ">
             <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-2 border border-red-500 rounded">Delete</button>
             </a>
         </td>
