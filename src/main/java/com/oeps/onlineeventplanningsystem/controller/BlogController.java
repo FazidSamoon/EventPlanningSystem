@@ -31,20 +31,25 @@ public class BlogController {
         Blog blog = new Blog();
         String username = ((User) session.getAttribute("userSession")).getUsername();
 
-        if (blogImage.length() > 3500){
+        try {
+            if (blogImage.length() > 3500){
 
-            throw new BlogsExceptions("Image size should be less than 3500 bytes");
-        }else {
-            blog.setBlogTitle(blogTitle);
-            blog.setAuthor(author);
-            blog.setBlogDescription(blogDescription);
-            blog.setBlogImage(blogImage);
+                throw new BlogsExceptions("Image size should be less than 3500 bytes");
+            }else {
+                blog.setBlogTitle(blogTitle);
+                blog.setAuthor(author);
+                blog.setBlogDescription(blogDescription);
+                blog.setBlogImage(blogImage);
 
-            blog.setBlogContent(blogContent);
-            blog.setUserName(username);
+                blog.setBlogContent(blogContent);
+                blog.setUserName(username);
 
-            blogRepo.save(blog);
+                blogRepo.save(blog);
+            }
+        }catch (BlogsExceptions e){
+            return "error505";
         }
+
 
 
         return "redirect:/blogs";
@@ -55,57 +60,97 @@ public class BlogController {
     @GetMapping("/manageBlogs")
     public ModelAndView getAllBlogs(){
         List<Blog> blogList = blogRepo.findAll();
-        return new ModelAndView("manageBlogs", new HashMap(){
-            {
-                put("blogL" , blogList);
-            }
 
-        },HttpStatus.OK);
+        try {
+            return new ModelAndView("manageBlogs", new HashMap(){
+                {
+                    put("blogL" , blogList);
+                }
+
+            },HttpStatus.OK);
+        }catch (Exception e){
+            return new ModelAndView("error505");
+        }
+
     }
 
     @GetMapping("/blogs")
     public ModelAndView getBlogs(){
         List<Blog> myBlogList = blogRepo.findAll();
-        return new ModelAndView("blogs", new HashMap(){
-            {
-                put("blogM" , myBlogList);
-            }
 
-        },HttpStatus.OK);
+        try{
+            return new ModelAndView("blogs", new HashMap(){
+                {
+                    put("blogM" , myBlogList);
+                }
+
+            },HttpStatus.OK);
+        }catch (Exception e){
+            return new ModelAndView("error505");
+        }
+
     }
 
     @GetMapping("/readBlog/{blogID}")
     public ModelAndView getReadBlogs(@PathVariable("blogID") int blogID){
         Blog blog = blogRepo.findById(blogID).get();
-        return new ModelAndView("/readBlog", new HashMap(){
-            {
-                put("blogR" , blog);
+
+        try{
+            try {
+                return new ModelAndView("/readBlog", new HashMap(){
+                    {
+                        put("blogR" , blog);
+                    }
+
+                },HttpStatus.OK);
+            }catch (Exception e){
+                throw new BlogsExceptions("Blog not found");
             }
 
-        },HttpStatus.OK);
+        }catch (Exception e){
+            return new ModelAndView("error505");
+        }
+
     }
 
 
     @GetMapping("/updateBlog/{blogID}")
     public ModelAndView getExistingBlogs(@PathVariable("blogID") int blogID){
         Blog blog = blogRepo.findById(blogID).get();
-        return new ModelAndView("/updateBlog", new HashMap(){
-            {
-                put("blogC" , blog);
-            }
 
-        },HttpStatus.OK);
+        try{
+            return new ModelAndView("/updateBlog", new HashMap(){
+                {
+                    put("blogC" , blog);
+                }
+
+            },HttpStatus.OK);
+        }catch (Exception e){
+            return new ModelAndView("error505");
+        }
+
     }
 
     @GetMapping("/deleteBlog/{id}")
     public ModelAndView getBlogId(@PathVariable("id") int blogID){
         Blog blog = blogRepo.findById(blogID).get();
-        return new ModelAndView("/deleteBlog", new HashMap(){
-            {
-                put("blogID" , blog);
+
+        try{
+            try {
+                return new ModelAndView("/deleteBlog", new HashMap(){
+                    {
+                        put("blogID" , blog);
+                    }
+
+                },HttpStatus.OK);
+            }catch (Exception e){
+                throw new BlogsExceptions("Blog not found");
             }
 
-        },HttpStatus.OK);
+        }catch (Exception e){
+            return new ModelAndView("error505");
+        }
+
     }
 
 
@@ -114,15 +159,20 @@ public class BlogController {
 
         Blog blog2 = blogRepo.findById(blogID).get();
 
-        blog2.setBlogTitle(blogTitle);
-        blog2.setAuthor(author);
-        blog2.setBlogDescription(blogDescription);
-        blog2.setBlogImage(blogImage);
-        blog2.setBlogContent(blogContent);
+        try {
+            blog2.setBlogTitle(blogTitle);
+            blog2.setAuthor(author);
+            blog2.setBlogDescription(blogDescription);
+            blog2.setBlogImage(blogImage);
+            blog2.setBlogContent(blogContent);
 
-        blogRepo.save(blog2);
+            blogRepo.save(blog2);
 
-        return "redirect:/blogs";
+            return "redirect:/blogs";
+        }catch (Exception e){
+            return "error505";
+        }
+
 
     }
 

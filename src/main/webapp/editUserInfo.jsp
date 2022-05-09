@@ -57,12 +57,12 @@
                                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                     <div class="form-group">
                                         <label for="name">Name</label>
-                                        <input type="text" class="form-control" id="name" name="name" value="${userSession.getUsername()}">
+                                        <input type="text" class="form-control" id="name" name="name" value="${userSession.getName()}">
                                     </div>
                                 </div><div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                     <div class="form-group">
                                         <label for="address">Address</label>
-                                        <input type="submit" class="form-control" id="address" name="address" value="${userSession.getAddress()}">
+                                        <input type="text" class="form-control" id="address" name="address" value="${userSession.getAddress()}">
                                     </div>
                                 </div>
                                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
@@ -73,21 +73,6 @@
                                 </div>
 
                             </div>
-                            
-                                
-                                <!-- <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                                    <div class="form-group">
-                                        <label for="address">Address</label>
-                                        <input type="submit" class="form-control" name="address" value="${userSession.getAddress()}">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="address">Address</label>
-                                        <input type="submit" class="form-control" name="address" value="${userSession.getAddress()}">
-                                    </div>
-                                </div> -->
-
-
-                            
                             <br>
                             <div class="row gutters">
                                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">

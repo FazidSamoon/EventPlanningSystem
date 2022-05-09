@@ -6,6 +6,7 @@ import com.oeps.onlineeventplanningsystem.error.UserNotFoundException;
 import com.oeps.onlineeventplanningsystem.model.Event;
 import com.oeps.onlineeventplanningsystem.model.User;
 import com.oeps.onlineeventplanningsystem.repositories.EventRepo;
+import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
@@ -22,24 +23,38 @@ public class EventController {
     @Autowired
     EventRepo eventRepo;
 
+    Logger logger = org.slf4j.LoggerFactory.getLogger(EventController.class);
+
     @RequestMapping("/createEvent")
-    public String createEvent() {
-        return "/Event/createEvent";
+    public String createEvent(HttpSession session) {
+        if (session.getAttribute("userSession") == null) {
+            return "redirect:/login";
+        }else {
+            return "/Event/createEvent";
+        }
     }
     @PostMapping("/saveEvent")
     public String saveEvent(String eventName, String eventDescription, String eventDate, String eventLocation, HttpSession session) {
         Event event = new Event();
-        event.setEventName(eventName);
-        event.setEventDescription(eventDescription);
-        event.setEventDate(eventDate);
-        event.setEventLocation(eventLocation);
+
+        try {
+            event.setEventName(eventName);
+            event.setEventDescription(eventDescription);
+            event.setEventDate(eventDate);
+            event.setEventLocation(eventLocation);
 
 
-        String username = ((User) session.getAttribute("userSession")).getName();
-        event.setUsername(username);
-        eventRepo.save(event);
+            String username = ((User) session.getAttribute("userSession")).getName();
+            event.setUsername(username);
+            eventRepo.save(event);
 
-        return "index";
+            logger.info("Event created successfully");
+
+            return "index";
+        }catch (Exception e) {
+            return "error505";
+        }
+
     }
     @GetMapping ("/viewEvent")
     public ModelAndView viewEvent(HttpSession session) throws UserNotFoundException {
@@ -65,11 +80,18 @@ public class EventController {
     @GetMapping ("/EditEvent/{id}")
     public ModelAndView editEventDetails(@PathVariable("id") int id) {
         Event eventEdit = eventRepo.findByEventId(id).get();
-        return  new ModelAndView("/Event/EditEvent", new HashMap() {
-            {
-                put("eventE", eventEdit);
-            }
-        },HttpStatus.OK);
+        try {
+            return  new ModelAndView("/Event/EditEvent", new HashMap() {
+                {
+                    put("eventE", eventEdit);
+                }
+            },HttpStatus.OK);
+        }catch (Exception e) {
+            logger.error("Event not found");
+            return new ModelAndView("error505");
+
+        }
+
 
     }
 
@@ -78,30 +100,42 @@ public class EventController {
 
         Event event = eventRepo.findByEventId(id).get();
 
-        if (Objects.nonNull(eventName)){
-            event.setEventName(eventName);
+        try {
+            if (Objects.nonNull(eventName)){
+                event.setEventName(eventName);
+            }
+
+            if (Objects.nonNull(eventDescription)){
+                event.setEventDescription(eventDescription);
+            }
+
+            if (Objects.nonNull(eventDate)){
+                event.setEventDate(eventDate);
+            }
+
+            if (Objects.nonNull(eventLocation)){
+                event.setEventLocation(eventLocation);
+            }
+            eventRepo.save(event);
+            return "redirect:/viewEvent";
+        }catch (Exception e) {
+            logger.error("Event not updated");
+            return "error505";
         }
 
-        if (Objects.nonNull(eventDescription)){
-            event.setEventDescription(eventDescription);
-        }
-
-        if (Objects.nonNull(eventDate)){
-            event.setEventDate(eventDate);
-        }
-
-        if (Objects.nonNull(eventLocation)){
-            event.setEventLocation(eventLocation);
-        }
-        eventRepo.save(event);
-        return "redirect:/viewEvent";
     }
 
     @GetMapping ("/DeleteEvent/{id}")
     public String deleteEvent(@PathVariable("id") int id) {
         Event event = eventRepo.findByEventId(id).get();
-        eventRepo.delete(event);
-        return "redirect:/viewEvent";
+        try {
+            eventRepo.delete(event);
+            return "redirect:/viewEvent";
+        }catch (Exception e) {
+            logger.error("Event not deleted " + e.getMessage());
+            return "error505";
+        }
+
     }
 
 

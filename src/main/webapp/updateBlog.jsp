@@ -72,7 +72,7 @@
 
                         <div class="flex flex-col">
                             <label class="leading-loose">Blog Content</label>
-                            <textarea name="blogContent" value="<%=blog.getBlogContent()%>" class="px-4 py-2 border focus:ring-gray-500 focus:border-gray-900 w-full sm:text-sm border-gray-300 rounded-md focus:outline-none text-gray-600" placeholder="Blog Content" required></textarea>
+                            <textarea name="blogContent" class="px-4 py-2 border focus:ring-gray-500 focus:border-gray-900 w-full sm:text-sm border-gray-300 rounded-md focus:outline-none text-gray-600" placeholder="Blog Content" required><%=blog.getBlogContent()%></textarea>
                         </div>
 
                     </div>
