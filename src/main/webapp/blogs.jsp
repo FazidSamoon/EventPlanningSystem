@@ -264,9 +264,6 @@
                                         <%
                                             if(blogn.getUserName().equals(((User)session.getAttribute("userSession")).getUsername())){
                                         %>
-                                <%
-                                    }
-                                %>
 
                                 <div style="float: left">
                                     <a href="updateBlog/<%=blogn.getBlogID()%>">
@@ -276,6 +273,11 @@
                                         <button class="p-1 pl-5 pr-5 bg-green-400 text-gray-100 text-s rounded-lg focus:border-4 border-green-600 hover:bg-green-700">Delete</button>
                                     </a>
                                 </div>
+
+                                <%
+                                    }
+                                %>
+
 
                                 <%}%>
 

@@ -69,6 +69,17 @@ public class ServiceController {
 
     }
 
+    @GetMapping("/services")
+    public ModelAndView loadServiceForm(){
+        List <Services> servicesList = servicesRepo.findAll();
+
+        return new ModelAndView("/services", new HashMap() {
+            {
+                put("servicesList", servicesList);
+            }
+        }, HttpStatus.OK);
+    }
+
     @GetMapping("/editService/updateService/{id}")
     public String updateService(@PathVariable("id") Long id, String serviceName, String serviceCreatedBy, String serviceDescription, String serviceCategory , String pictureUrl , String servicePrice) {
 
@@ -96,4 +107,7 @@ public class ServiceController {
         servicesRepo.delete(service);
         return "redirect:/servicesControlAdmin";
     }
+
+
+
 }

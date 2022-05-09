@@ -47,10 +47,7 @@ public class HomeController {
         return "./account/admin";
     }
 
-    @GetMapping("/services")
-    public String getServices(){
-         return "services";
-    }
+
 
 
 

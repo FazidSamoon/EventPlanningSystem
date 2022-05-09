@@ -67,7 +67,7 @@
                   placeholder="Your password"
                   value=""
                   required
-                  minlength="8"
+                  minlength="6"
                   maxlength="20"
 
                 />
