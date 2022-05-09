@@ -19,8 +19,13 @@
 <br>
 <div class="container h-100">
 
+
+<%--    <%--%>
+<%--        if (session.getAttribute("userSession") != null) {--%>
+<%--    %>--%>
 <table class="min-w-full border-collapse block md:table">
-<%-- //List<Event> eventList = (List<Event>) request.getAttribute("eventList");--%>
+
+
         <% for(Event eventN : (List<Event>)
         request.getAttribute("eventM")){ %>
     <tr>
@@ -32,14 +37,18 @@
             <a href="/EditEvent/<%= eventN.getEventId() %> ">
             <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 border border-blue-500 rounded">Edit</button>
             </a>
-            <a href="">
+            <a href="/DeleteEvent/<%= eventN.getEventId() %> ">
             <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-2 border border-red-500 rounded">Delete</button>
             </a>
         </td>
     </tr>
 <% } %>
 </table>
+<%--    <%--%>
+<%--        }--%>
+<%--    %>--%>
 </div>
 
     <%@ include file="../components/footer.jsp" %>
 </body>
+</html>

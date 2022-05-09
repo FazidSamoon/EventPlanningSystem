@@ -39,36 +39,36 @@
                                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                     <div class="form-group">
                                         <label for="username">User Name</label>
-                                        <input type="text" class="form-control" name="username" value="${userSession.getUsername()}">
+                                        <input type="text" class="form-control" id="username" name="username" value="${userSession.getUsername()}">
                                     </div>
                                 </div>
                                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                     <div class="form-group">
                                         <label for="eMail">Email</label>
-                                        <input type="email" class="form-control" name="eMail" value="${userSession.getEmail()}">
+                                        <input type="email" class="form-control" id="username" name="eMail" value="${userSession.getEmail()}">
                                     </div>
                                 </div>
                                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                     <div class="form-group">
                                         <label for="phone">Phone</label>
-                                        <input type="text" class="form-control" name="phone" value="${userSession.getPhone()}">
+                                        <input type="text" class="form-control" id="phone" name="phone" value="${userSession.getPhone()}">
                                     </div>
                                 </div>
                                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                     <div class="form-group">
                                         <label for="name">Name</label>
-                                        <input type="text" class="form-control" name="name" value="${userSession.getUsername()}">
+                                        <input type="text" class="form-control" id="name" name="name" value="${userSession.getUsername()}">
                                     </div>
                                 </div><div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                     <div class="form-group">
                                         <label for="address">Address</label>
-                                        <input type="submit" class="form-control" name="address" value="${userSession.getAddress()}">
+                                        <input type="submit" class="form-control" id="address" name="address" value="${userSession.getAddress()}">
                                     </div>
                                 </div>
                                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                     <div class="form-group">
-                                        <label for="name">Password</label>
-                                        <input type="password" class="form-control" name="password" value="${userSession.getPassword()}">
+                                        <label for="password">Password</label>
+                                        <input type="password" class="form-control" id="password" name="password" value="${userSession.getPassword()}">
                                     </div>
                                 </div>
 
