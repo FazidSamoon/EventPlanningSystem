@@ -23,8 +23,10 @@ public class EventController {
     @Autowired
     EventRepo eventRepo;
 
+    //create logger instance
     Logger logger = org.slf4j.LoggerFactory.getLogger(EventController.class);
 
+    //mapping for create event
     @RequestMapping("/createEvent")
     public String createEvent(HttpSession session) {
         if (session.getAttribute("userSession") == null) {
@@ -33,6 +35,7 @@ public class EventController {
             return "/Event/createEvent";
         }
     }
+    // method for saving to database
     @PostMapping("/saveEvent")
     public String saveEvent(String eventName, String eventDescription, String eventDate, String eventLocation, HttpSession session) {
         Event event = new Event();
@@ -42,7 +45,6 @@ public class EventController {
             event.setEventDescription(eventDescription);
             event.setEventDate(eventDate);
             event.setEventLocation(eventLocation);
-
 
             String username = ((User) session.getAttribute("userSession")).getName();
             event.setUsername(username);
@@ -56,6 +58,7 @@ public class EventController {
         }
 
     }
+    //mapping for viewing event page
     @GetMapping ("/viewEvent")
     public ModelAndView viewEvent(HttpSession session) throws UserNotFoundException {
 
@@ -76,7 +79,7 @@ public class EventController {
             }, HttpStatus.OK);
 
     }
-
+    //edit event method for updating
     @GetMapping ("/EditEvent/{id}")
     public ModelAndView editEventDetails(@PathVariable("id") int id) {
         Event eventEdit = eventRepo.findByEventId(id).get();

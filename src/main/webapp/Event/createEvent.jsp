@@ -37,19 +37,19 @@
 
     <div class="form-group">
         <label for="eventName">Event </label>
-        <input type="Text" class="form-control"  name="eventName" id="eventName" placeholder="Enter your event name">
+        <input type="Text" class="form-control"  name="eventName" id="eventName" placeholder="Enter your event name" required>
     </div>
     <div class="form-group">
-        <label for="eventDescription">Event Description</label>
+        <label for="eventDescription">Event Description (optional)</label>
         <textarea class="form-control" id="eventDescription" name="eventDescription" rows="3"></textarea>
     </div>
     <div class="form-group">
         <label for="eventDate">Date</label>
-        <input type="date" class="form-control" id="eventDate" name="eventDate" placeholder="Enter Date">
+        <input type="date" class="form-control" id="eventDate" name="eventDate" placeholder="Enter Date" required>
     </div>
     <div class="form-group">
         <label for="eventLocation">Location</label>
-        <input type="Text" class="form-control" id="eventLocation" name="eventLocation" placeholder="select location">
+        <input type="Text" class="form-control" id="eventLocation" name="eventLocation" placeholder="select location" required>
     </div>
     <button type="submit" class="btn btn-success text-white bg-green-600" >Submit</button>
 
