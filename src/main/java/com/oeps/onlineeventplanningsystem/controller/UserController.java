@@ -129,9 +129,11 @@ public class UserController {
                     session.invalidate();
 
                 }
-
+                return "redirect:/";
+            }else {
+                return "redirect:/error505";
             }
-            return "redirect:/";
+
         } catch (Exception e) {
             logger.error("cant delete user " + e.getMessage());
             throw new UsernamePasswordMissmatchException("Username or password is incorrect" );

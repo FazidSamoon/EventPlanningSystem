@@ -87,7 +87,7 @@
                         </td>
                         <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-l whitespace-nowrap p-4">
                             <a href="updateBlog/<%=blog.getBlogID()%>"><div style="margin-bottom: 1px;"><button type="button"  class="mr-3 text-sm bg-blue-500 hover:bg-blue-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline" style="width: 100px">Edit</button></div></a>
-                            <a href="deleteBlog"> <div style="margin-bottom: 2px"><button type="button" class="text-sm bg-red-500 hover:bg-red-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline" style="width: 100px">Delete</button></div></a>
+                            <a href="deleteBlog/<%=blog.getBlogID()%>"> <div style="margin-bottom: 2px"><button type="button" class="text-sm bg-red-500 hover:bg-red-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline" style="width: 100px">Delete</button></div></a>
                         </td>
                     </tr>
                     <%}%>
